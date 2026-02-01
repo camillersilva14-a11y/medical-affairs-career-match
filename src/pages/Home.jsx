@@ -28,7 +28,7 @@ export default function Home() {
     },
     {
       icon: Briefcase,
-      title: "11 Carreiras",
+      title: "Carreiras reais",
       description: "Vagas reais do mercado de Pesquisa Clínica com faixas salariais"
     }
   ];
