@@ -5,7 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, ArrowRight, Loader2, User, Mail, Briefcase } from 'lucide-react';
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArrowLeft, ArrowRight, Loader2, User, Mail, Briefcase, Target, MapPin, Building2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import SEO from '@/components/SEO';
 
@@ -19,7 +21,14 @@ export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [userInfo, setUserInfo] = useState({ name: '', email: '', currentArea: '' });
+  const [userInfo, setUserInfo] = useState({ 
+    name: '', 
+    email: '', 
+    currentArea: '',
+    careerGoals: '',
+    relocationPreference: 'flexible',
+    companyCulture: 'flexible'
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleStartQuiz = () => {
@@ -99,8 +108,17 @@ export default function Quiz() {
       technicalScores[key] = Math.min(4, technicalScores[key]);
     });
 
-    // Calculate job matches
-    const recommendedJobs = calculateJobMatch(discProfile, technicalScores)
+    // Calculate job matches with user preferences
+    const recommendedJobs = calculateJobMatch(
+      discProfile, 
+      technicalScores,
+      {
+        careerGoals: userInfo.careerGoals,
+        relocationPreference: userInfo.relocationPreference,
+        companyCulture: userInfo.companyCulture
+      },
+      [] // No excluded jobs on first assessment
+    )
       .slice(0, 5)
       .map(job => ({
         job_title: job.title,
@@ -109,7 +127,8 @@ export default function Quiz() {
         description: job.description,
         disc_match: job.discMatch,
         tech_match: job.techMatch,
-        keywords: job.keywords
+        keywords: job.keywords,
+        feedback: 'none'
       }));
 
     // Save to database
@@ -117,10 +136,14 @@ export default function Quiz() {
       user_name: userInfo.name,
       user_email: userInfo.email,
       current_area: userInfo.currentArea,
+      career_goals: userInfo.careerGoals,
+      relocation_preference: userInfo.relocationPreference,
+      company_culture: userInfo.companyCulture,
       answers: finalAnswers,
       disc_profile: discProfile,
       technical_scores: technicalScores,
       recommended_jobs: recommendedJobs,
+      excluded_jobs: [],
       status: 'completed'
     });
 
@@ -183,6 +206,62 @@ export default function Quiz() {
                   onChange={(e) => setUserInfo({ ...userInfo, currentArea: e.target.value })}
                   className="h-12 rounded-xl border-slate-200 focus:border-teal-500 focus:ring-teal-500"
                 />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="goals" className="text-slate-700 flex items-center gap-2">
+                  <Target className="w-4 h-4" />
+                  Objetivos de carreira (opcional)
+                </Label>
+                <Textarea
+                  id="goals"
+                  placeholder="Ex: Desejo trabalhar com gestão de projetos, busco crescimento rápido..."
+                  value={userInfo.careerGoals}
+                  onChange={(e) => setUserInfo({ ...userInfo, careerGoals: e.target.value })}
+                  className="rounded-xl border-slate-200 focus:border-teal-500 focus:ring-teal-500 min-h-[80px]"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="relocation" className="text-slate-700 flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Preferência de localização
+                </Label>
+                <Select 
+                  value={userInfo.relocationPreference} 
+                  onValueChange={(value) => setUserInfo({ ...userInfo, relocationPreference: value })}
+                >
+                  <SelectTrigger className="h-12 rounded-xl border-slate-200">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="flexible">Flexível</SelectItem>
+                    <SelectItem value="no_relocation">Não posso me mudar</SelectItem>
+                    <SelectItem value="open_to_relocation">Aberto a mudanças</SelectItem>
+                    <SelectItem value="remote_only">Apenas remoto</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="culture" className="text-slate-700 flex items-center gap-2">
+                  <Building2 className="w-4 h-4" />
+                  Cultura empresarial preferida
+                </Label>
+                <Select 
+                  value={userInfo.companyCulture} 
+                  onValueChange={(value) => setUserInfo({ ...userInfo, companyCulture: value })}
+                >
+                  <SelectTrigger className="h-12 rounded-xl border-slate-200">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="flexible">Flexível</SelectItem>
+                    <SelectItem value="startup">Startup/Inovação</SelectItem>
+                    <SelectItem value="corporate">Corporativa/Estruturada</SelectItem>
+                    <SelectItem value="research">Pesquisa/Acadêmica</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <Button

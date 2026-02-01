@@ -48,13 +48,26 @@ export default function Results() {
       feedback: feedbackValue
     };
 
+    // Se marcou como "não tenho interesse", adicionar à lista de exclusão
+    let updatedExcludedJobs = [...(assessment.excluded_jobs || [])];
+    const jobTitle = updatedJobs[jobIndex].job_title;
+    
+    if (feedbackValue === 'not_interested' && !updatedExcludedJobs.includes(jobTitle)) {
+      updatedExcludedJobs.push(jobTitle);
+    } else if (feedbackValue === 'interested') {
+      // Remover da lista de exclusão se estava lá
+      updatedExcludedJobs = updatedExcludedJobs.filter(title => title !== jobTitle);
+    }
+
     await base44.entities.Assessment.update(assessment.id, {
-      recommended_jobs: updatedJobs
+      recommended_jobs: updatedJobs,
+      excluded_jobs: updatedExcludedJobs
     });
 
     setAssessment({
       ...assessment,
-      recommended_jobs: updatedJobs
+      recommended_jobs: updatedJobs,
+      excluded_jobs: updatedExcludedJobs
     });
   };
 
