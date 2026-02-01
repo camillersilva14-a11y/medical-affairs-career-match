@@ -151,27 +151,7 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-          className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {[
-            { value: "11", label: "Vagas Mapeadas" },
-            { value: "R$ 2.4k", label: "Salário Inicial" },
-            { value: "R$ 10k", label: "Salário Máximo" },
-            { value: "20", label: "Perguntas" }
-          ].map((stat, index) => (
-            <div key={index} className="text-center p-4">
-              <div className="text-3xl md:text-4xl font-bold text-teal-600 mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm text-slate-500">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
+
       </div>
     </div>
   );
