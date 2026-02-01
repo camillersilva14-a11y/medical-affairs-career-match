@@ -7,7 +7,7 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Simple Header */}
-      <header className="bg-transparent border-b border-slate-100 sticky top-0 z-50">
+      <header className="bg-transparent sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link 
             to={createPageUrl('Home')} 
