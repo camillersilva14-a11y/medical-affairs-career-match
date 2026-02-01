@@ -36,9 +36,7 @@ export default function Layout({ children, currentPageName }) {
           <p className="text-sm text-slate-500">
             © 2026 Clinical Career Match • Especialista em Recrutamento para Pesquisa Clínica
           </p>
-          <p className="text-xs text-slate-400 mt-2">
-            Metodologia DISC + Análise de Aptidões Técnicas
-          </p>
+
         </div>
       </footer>
     </div>);
