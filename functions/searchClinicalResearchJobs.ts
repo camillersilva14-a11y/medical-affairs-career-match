@@ -47,13 +47,10 @@ Para cada vaga encontrada, forneça:
 - título exato da vaga
 - empresa (se disponível)
 - faixa salarial (se disponível, ou estimativa baseada no mercado)
-- descrição resumida (2-3 linhas) incluindo possibilidades de crescimento
+- descrição resumida (2-3 linhas)
 - localização
 - tipo (presencial/remoto/híbrido)
-- cultura da empresa (startup/corporate/research/flexible)
 - link da vaga (se disponível)
-
-IMPORTANTE: Priorize vagas que tenham alinhamento com os objetivos de carreira do usuário.
 
 Se não encontrar vagas específicas atuais, sugira 5-8 títulos de vagas COMUNS de entrada na pesquisa clínica com descrições realistas baseadas no mercado brasileiro.`,
             add_context_from_internet: true,
@@ -71,8 +68,6 @@ Se não encontrar vagas específicas atuais, sugira 5-8 títulos de vagas COMUNS
                                 description: { type: "string" },
                                 location: { type: "string" },
                                 work_type: { type: "string" },
-                                company_culture: { type: "string" },
-                                career_growth: { type: "string" },
                                 job_url: { type: "string" }
                             },
                             required: ["title", "description", "location"]

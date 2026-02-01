@@ -147,54 +147,21 @@ export default function Quiz() {
       });
 
       if (jobSearchResponse.data?.success && jobSearchResponse.data.jobs?.length > 0) {
-        realMarketJobs = jobSearchResponse.data.jobs.slice(0, 5).map(job => {
-          // Calcular match baseado em alinhamento com objetivos
-          let careerGoalBonus = 0;
-          if (userInfo.careerGoals) {
-            const goalsLower = userInfo.careerGoals.toLowerCase();
-            const titleLower = job.title.toLowerCase();
-            const descLower = job.description.toLowerCase();
-
-            // Verificar alinhamento
-            const keywords = ['gestão', 'liderança', 'dados', 'monitor', 'regulatório', 
-                             'farmacovigilância', 'crescimento'];
-            keywords.forEach(keyword => {
-              if (goalsLower.includes(keyword) && 
-                  (titleLower.includes(keyword) || descLower.includes(keyword))) {
-                careerGoalBonus += 5;
-              }
-            });
-          }
-
-          // Bonus por cultura alinhada
-          let cultureBonus = 0;
-          if (userInfo.companyCulture !== 'flexible' && 
-              job.company_culture === userInfo.companyCulture) {
-            cultureBonus = 10;
-          }
-
-          const baseMatch = 75;
-          const finalMatch = Math.min(100, baseMatch + careerGoalBonus + cultureBonus);
-
-          return {
-            job_title: job.title,
-            company: job.company || 'Empresa não divulgada',
-            match_percentage: finalMatch,
-            salary_range: job.salary_range || 'A combinar',
-            description: job.description,
-            location: job.location,
-            work_type: job.work_type || 'Presencial',
-            company_culture: job.company_culture || 'flexible',
-            career_growth: job.career_growth,
-            job_url: job.job_url,
-            disc_match: 70,
-            tech_match: 80,
-            career_goal_match: Math.min(100, 50 + careerGoalBonus * 2),
-            keywords: ['vaga real', 'mercado atual'],
-            feedback: 'none',
-            is_real_job: true
-          };
-        });
+        realMarketJobs = jobSearchResponse.data.jobs.slice(0, 5).map(job => ({
+          job_title: job.title,
+          company: job.company || 'Empresa não divulgada',
+          match_percentage: 75, // Score base para vagas reais
+          salary_range: job.salary_range || 'A combinar',
+          description: job.description,
+          location: job.location,
+          work_type: job.work_type || 'Presencial',
+          job_url: job.job_url,
+          disc_match: 70,
+          tech_match: 80,
+          keywords: ['vaga real', 'mercado atual'],
+          feedback: 'none',
+          is_real_job: true
+        }));
       }
     } catch (error) {
       console.log('Não foi possível buscar vagas do mercado:', error);
@@ -278,6 +245,62 @@ export default function Quiz() {
                   onChange={(e) => setUserInfo({ ...userInfo, currentArea: e.target.value })}
                   className="h-12 rounded-xl border-slate-200 focus:border-teal-500 focus:ring-teal-500"
                 />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="goals" className="text-slate-700 flex items-center gap-2">
+                  <Target className="w-4 h-4" />
+                  Objetivos de carreira (opcional)
+                </Label>
+                <Textarea
+                  id="goals"
+                  placeholder="Ex: Desejo trabalhar com gestão de projetos, busco crescimento rápido..."
+                  value={userInfo.careerGoals}
+                  onChange={(e) => setUserInfo({ ...userInfo, careerGoals: e.target.value })}
+                  className="rounded-xl border-slate-200 focus:border-teal-500 focus:ring-teal-500 min-h-[80px]"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="relocation" className="text-slate-700 flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Preferência de localização
+                </Label>
+                <Select 
+                  value={userInfo.relocationPreference} 
+                  onValueChange={(value) => setUserInfo({ ...userInfo, relocationPreference: value })}
+                >
+                  <SelectTrigger className="h-12 rounded-xl border-slate-200">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="flexible">Flexível</SelectItem>
+                    <SelectItem value="no_relocation">Não posso me mudar</SelectItem>
+                    <SelectItem value="open_to_relocation">Aberto a mudanças</SelectItem>
+                    <SelectItem value="remote_only">Apenas remoto</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="culture" className="text-slate-700 flex items-center gap-2">
+                  <Building2 className="w-4 h-4" />
+                  Cultura empresarial preferida
+                </Label>
+                <Select 
+                  value={userInfo.companyCulture} 
+                  onValueChange={(value) => setUserInfo({ ...userInfo, companyCulture: value })}
+                >
+                  <SelectTrigger className="h-12 rounded-xl border-slate-200">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="flexible">Flexível</SelectItem>
+                    <SelectItem value="startup">Startup/Inovação</SelectItem>
+                    <SelectItem value="corporate">Corporativa/Estruturada</SelectItem>
+                    <SelectItem value="research">Pesquisa/Acadêmica</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <Button

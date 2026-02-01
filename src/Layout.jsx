@@ -16,7 +16,7 @@ export default function Layout({ children, currentPageName }) {
             className="flex items-center gap-2 text-slate-800 hover:text-teal-600 transition-colors">
 
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697f6e1c7c393db6e6f1476d/312db81d3_image.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697f6e1c7c393db6e6f1476d/243e60f9c_Gemini_Generated_Image_qbu5f8qbu5f8qbu5.png"
               alt="Clinical Career Match" className="w-24 h-24 object-contain" />
 
 

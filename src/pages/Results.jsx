@@ -195,7 +195,6 @@ export default function Results() {
                   matchPercentage: job.match_percentage,
                   discMatch: job.disc_match,
                   techMatch: job.tech_match,
-                  careerGoalMatch: job.career_goal_match,
                   keywords: job.keywords || [],
                   location: job.location,
                   workType: job.work_type,
