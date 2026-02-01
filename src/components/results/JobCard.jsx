@@ -8,11 +8,11 @@ export default function JobCard({ job, rank, delay = 0 }) {
   const getRankStyle = (rank) => {
     switch(rank) {
       case 1:
-        return "border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50";
+        return "border-orange-400 bg-gradient-to-br from-orange-100 to-orange-50";
       case 2:
-        return "border-slate-300 bg-gradient-to-br from-slate-50 to-zinc-50";
+        return "border-orange-300 bg-gradient-to-br from-orange-50 to-amber-50";
       case 3:
-        return "border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50";
+        return "border-orange-200 bg-gradient-to-br from-orange-50 to-yellow-50";
       default:
         return "border-slate-200 bg-white";
     }
@@ -41,9 +41,9 @@ export default function JobCard({ job, rank, delay = 0 }) {
           {rank <= 3 && (
             <div className={cn(
               "w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg",
-              rank === 1 && "bg-amber-400 text-white",
-              rank === 2 && "bg-slate-400 text-white",
-              rank === 3 && "bg-orange-400 text-white"
+              rank === 1 && "bg-orange-500 text-white",
+              rank === 2 && "bg-orange-400 text-white",
+              rank === 3 && "bg-orange-300 text-white"
             )}>
               {rank}º
             </div>
