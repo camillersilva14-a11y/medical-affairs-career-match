@@ -252,6 +252,79 @@ export const quizQuestions = [
       { text: "Pesquisa exaustivamente antes de concluir", score: { D: 1, I: 0, S: 1, C: 4 } }
     ]
   },
+  // Novas perguntas DISC para maior precisão
+  {
+    id: 21,
+    category: "disc",
+    dimension: "D",
+    text: "Diante de um prazo apertado e recursos limitados, você:",
+    options: [
+      { text: "Assume o controle, prioriza tarefas críticas e delega rapidamente", score: { D: 4, I: 1, S: 0, C: 2 } },
+      { text: "Motiva a equipe e busca soluções criativas em conjunto", score: { D: 2, I: 4, S: 1, C: 1 } },
+      { text: "Mantém a calma e trabalha de forma metódica para cumprir o prazo", score: { D: 0, I: 1, S: 4, C: 3 } },
+      { text: "Analisa os riscos e cria um plano detalhado antes de agir", score: { D: 1, I: 0, S: 2, C: 4 } }
+    ]
+  },
+  {
+    id: 22,
+    category: "disc",
+    dimension: "I",
+    text: "Em um projeto de equipe, você naturalmente:",
+    options: [
+      { text: "Define metas claras e cobra resultados da equipe", score: { D: 4, I: 1, S: 1, C: 2 } },
+      { text: "Anima o grupo, facilita a colaboração e mantém o clima positivo", score: { D: 1, I: 4, S: 2, C: 0 } },
+      { text: "Apoia os colegas e garante que todos se sintam incluídos", score: { D: 0, I: 2, S: 4, C: 1 } },
+      { text: "Organiza informações, documenta processos e verifica a qualidade", score: { D: 1, I: 0, S: 2, C: 4 } }
+    ]
+  },
+  {
+    id: 23,
+    category: "disc",
+    dimension: "S",
+    text: "Como você reage quando precisa trabalhar em múltiplos projetos simultâneos?",
+    options: [
+      { text: "Adoro o desafio! Consigo gerenciar várias frentes com energia", score: { D: 4, I: 3, S: 0, C: 1 } },
+      { text: "Me adapto bem, gosto da variedade e interação entre projetos", score: { D: 2, I: 4, S: 1, C: 1 } },
+      { text: "Prefiro foco em uma coisa por vez, mas me adapto se necessário", score: { D: 0, I: 1, S: 4, C: 2 } },
+      { text: "Crio sistemas e checklists para garantir que nada seja esquecido", score: { D: 1, I: 0, S: 2, C: 4 } }
+    ]
+  },
+  {
+    id: 24,
+    category: "disc",
+    dimension: "C",
+    text: "Ao executar uma tarefa, o que mais te preocupa?",
+    options: [
+      { text: "Entregar resultados rápidos que gerem impacto", score: { D: 4, I: 2, S: 0, C: 1 } },
+      { text: "Fazer de forma que as pessoas apreciem e reconheçam", score: { D: 1, I: 4, S: 1, C: 0 } },
+      { text: "Manter a harmonia da equipe e não causar problemas", score: { D: 0, I: 1, S: 4, C: 2 } },
+      { text: "Garantir que está correto, seguindo todas as normas e padrões", score: { D: 1, I: 0, S: 2, C: 4 } }
+    ]
+  },
+  {
+    id: 25,
+    category: "disc",
+    dimension: "mixed",
+    text: "Como você prefere receber instruções de trabalho?",
+    options: [
+      { text: "Objetivos claros e liberdade total para decidir como fazer", score: { D: 4, I: 1, S: 0, C: 1 } },
+      { text: "Conversas abertas com espaço para ideias e sugestões", score: { D: 1, I: 4, S: 2, C: 0 } },
+      { text: "Instruções claras e suporte contínuo durante a execução", score: { D: 0, I: 1, S: 4, C: 2 } },
+      { text: "Documentação detalhada com todos os procedimentos e critérios", score: { D: 1, I: 0, S: 2, C: 4 } }
+    ]
+  },
+  {
+    id: 26,
+    category: "disc",
+    dimension: "mixed",
+    text: "Seu estilo de liderança ou influência é mais:",
+    options: [
+      { text: "Diretivo - tomo decisões e espero que sejam seguidas", score: { D: 4, I: 1, S: 0, C: 2 } },
+      { text: "Inspirador - motivo e engajo as pessoas através de entusiasmo", score: { D: 1, I: 4, S: 1, C: 0 } },
+      { text: "Colaborativo - busco consenso e valorizo a opinião de todos", score: { D: 0, I: 2, S: 4, C: 1 } },
+      { text: "Consultivo - apresento dados e análises para embasar decisões", score: { D: 1, I: 0, S: 2, C: 4 } }
+    ]
+  },
   // Perguntas Técnicas/Aptidão
   {
     id: 13,
@@ -387,26 +460,118 @@ export const calculateJobMatch = (discProfile, technicalScores) => {
   return results.sort((a, b) => b.matchPercentage - a.matchPercentage);
 };
 
-// Descrições dos perfis DISC
+// Descrições detalhadas dos perfis DISC com múltiplos níveis
 export const discDescriptions = {
   D: {
     name: "Dominância",
+    subtitle: "Foco em resultados, ação e desafios",
     high: "Você é determinado(a), direto(a) e orientado(a) para resultados. Gosta de desafios e toma decisões com rapidez.",
-    low: "Você é mais colaborativo(a) e prefere consenso antes de agir. Evita confrontos diretos."
+    low: "Você é mais colaborativo(a) e prefere consenso antes de agir. Evita confrontos diretos.",
+    levels: {
+      veryHigh: {
+        range: "75-100%",
+        description: "Perfil altamente dominante e assertivo",
+        workplace: "No trabalho, você é o(a) tomador(a) de decisões naturais. Assume liderança em situações de crise, não teme conflitos e busca constantemente novos desafios. Pode ser percebido(a) como autoritário(a), mas sua capacidade de agir rapidamente sob pressão é um grande diferencial. Ideal para cargos que exigem autonomia, resolução rápida de problemas e tomada de decisão estratégica."
+      },
+      high: {
+        range: "50-74%",
+        description: "Orientado(a) a resultados com bom equilíbrio",
+        workplace: "Você demonstra forte orientação para resultados mantendo abertura para colaboração. Consegue liderar quando necessário, mas também trabalhar em equipe. Seu foco em eficiência e objetivos claros torna você valioso(a) em projetos que precisam de direcionamento, especialmente em funções de coordenação, gestão de projetos e supervisão de equipes."
+      },
+      moderate: {
+        range: "25-49%",
+        description: "Equilibrado entre assertividade e colaboração",
+        workplace: "Você equilibra bem a busca por resultados com a consideração pelas pessoas. Prefere consenso, mas consegue ser assertivo(a) quando necessário. Essa flexibilidade é vantajosa em ambientes colaborativos onde é preciso mediar interesses, como em funções de suporte, facilitação e trabalho em equipe multidisciplinar."
+      },
+      low: {
+        range: "0-24%",
+        description: "Estilo colaborativo e conciliador",
+        workplace: "Você prefere evitar confrontos diretos e buscar soluções harmoniosas. Tende a ser um(a) excelente mediador(a), ouvindo diferentes perspectivas antes de agir. Sua abordagem cautelosa e diplomática é ideal para funções que exigem construção de consenso, atendimento, suporte e trabalho em ambientes que valorizam a harmonia."
+      }
+    }
   },
   I: {
-    name: "Influência", 
+    name: "Influência",
+    subtitle: "Foco em pessoas, comunicação e relacionamentos",
     high: "Você é comunicativo(a), entusiasta e persuasivo(a). Gosta de interagir com pessoas e criar conexões.",
-    low: "Você é mais reservado(a) e prefere comunicações objetivas. Foca em fatos, não em emoções."
+    low: "Você é mais reservado(a) e prefere comunicações objetivas. Foca em fatos, não em emoções.",
+    levels: {
+      veryHigh: {
+        range: "75-100%",
+        description: "Altamente comunicativo(a) e carismático(a)",
+        workplace: "Você é o(a) motivador(a) natural da equipe. Sua energia contagiante e facilidade de comunicação fazem você se destacar em situações que envolvem networking, apresentações e trabalho em equipe. Pode ter dificuldade com tarefas muito técnicas ou isoladas. Excelente para funções que exigem relacionamento interpessoal, engajamento de stakeholders, recrutamento e comunicação corporativa."
+      },
+      high: {
+        range: "50-74%",
+        description: "Sociável com boa capacidade de influência",
+        workplace: "Você gosta de trabalhar com pessoas e tem facilidade para criar conexões. Consegue equilibrar a interação social com foco nas tarefas. Sua capacidade de persuasão e comunicação clara é um diferencial em funções que envolvem coordenação de equipes, interface com clientes/parceiros e apresentação de resultados."
+      },
+      moderate: {
+        range: "25-49%",
+        description: "Comunicação equilibrada e seletiva",
+        workplace: "Você é seletivo(a) nas interações sociais, preferindo comunicações mais objetivas e focadas. Consegue trabalhar em equipe, mas também valoriza momentos de trabalho individual. Essa combinação é útil em funções que alternam entre interação social e trabalho técnico, como analista de projetos, suporte técnico e funções híbridas."
+      },
+      low: {
+        range: "0-24%",
+        description: "Reservado(a) e focado(a) em fatos",
+        workplace: "Você prefere comunicação direta, objetiva e baseada em dados. Evita excessos sociais e se sente mais confortável com tarefas técnicas que não exigem muita interação. Sua abordagem é ideal para funções analíticas, trabalho individual, pesquisa, análise de dados e produção de conteúdo técnico onde o foco é qualidade e precisão, não networking."
+      }
+    }
   },
   S: {
     name: "Estabilidade",
+    subtitle: "Foco em consistência, harmonia e lealdade",
     high: "Você valoriza harmonia, consistência e trabalho em equipe. É paciente e leal.",
-    low: "Você se adapta bem a mudanças e prefere ambientes dinâmicos. Gosta de variedade."
+    low: "Você se adapta bem a mudanças e prefere ambientes dinâmicos. Gosta de variedade.",
+    levels: {
+      veryHigh: {
+        range: "75-100%",
+        description: "Altamente estável e leal à equipe",
+        workplace: "Você é o(a) pilar de estabilidade em qualquer equipe. Valoriza profundamente a harmonia, rotinas previsíveis e relações duradouras. Pode ter dificuldade com mudanças abruptas ou ambientes muito dinâmicos. Seu comprometimento e paciência são ideais para funções de suporte contínuo, processos padronizados, trabalho em equipes estáveis e ambientes que valorizam lealdade e consistência."
+      },
+      high: {
+        range: "50-74%",
+        description: "Busca equilíbrio e harmonia",
+        workplace: "Você prefere ambientes estáveis mas consegue lidar com mudanças graduais. Valoriza o trabalho em equipe e contribui para manter um clima harmonioso. Sua paciência e colaboração são valiosas em funções que exigem relacionamento de longo prazo com colegas/clientes, processos estruturados e ambiente colaborativo."
+      },
+      moderate: {
+        range: "25-49%",
+        description: "Equilibrado entre estabilidade e mudança",
+        workplace: "Você consegue alternar entre momentos de estabilidade e situações de mudança sem grande desconforto. Essa flexibilidade permite que você se adapte a diferentes contextos de trabalho, sendo útil em funções que alternam entre rotina e novidades, como implementação de projetos, transições e funções híbridas."
+      },
+      low: {
+        range: "0-24%",
+        description: "Orientado(a) a mudanças e variedade",
+        workplace: "Você se entedia facilmente com rotinas e busca constantemente novos desafios. Ambientes dinâmicos e imprevisíveis são onde você brilha. Sua adaptabilidade rápida é ideal para funções que envolvem viagens frequentes, múltiplos projetos simultâneos, startups, consultoria e situações que exigem respostas rápidas a mudanças constantes."
+      }
+    }
   },
   C: {
     name: "Conformidade",
+    subtitle: "Foco em qualidade, precisão e padrões",
     high: "Você preza por qualidade, precisão e seguir regras. É analítico(a) e detalhista.",
-    low: "Você é mais flexível com regras e prefere liberdade para inovar. Foco em big picture."
+    low: "Você é mais flexível com regras e prefere liberdade para inovar. Foco em big picture.",
+    levels: {
+      veryHigh: {
+        range: "75-100%",
+        description: "Altamente analítico(a) e detalhista",
+        workplace: "Você é meticuloso(a) e não aceita trabalho mal feito. Precisa de tempo para analisar antes de agir e valoriza processos bem definidos. Pode ser percebido(a) como perfeccionista ou inflexível. Seu rigor é essencial em funções que exigem conformidade regulatória, controle de qualidade, análise de dados, auditoria e qualquer atividade onde erros têm consequências significativas."
+      },
+      high: {
+        range: "50-74%",
+        description: "Focado(a) em qualidade e processos",
+        workplace: "Você valoriza fazer as coisas corretamente, seguindo padrões e procedimentos. Consegue equilibrar qualidade com prazos, mas não abre mão de um nível mínimo de rigor. Seu perfil é ideal para funções técnicas que exigem atenção aos detalhes, documentação precisa, compliance e gestão da qualidade."
+      },
+      moderate: {
+        range: "25-49%",
+        description: "Equilibra qualidade com flexibilidade",
+        workplace: "Você busca fazer um bom trabalho mas consegue ser flexível quando necessário. Não se prende excessivamente a regras e consegue priorizar o que realmente importa. Essa abordagem pragmática é vantajosa em funções que exigem equilíbrio entre qualidade e agilidade, como gestão de projetos, coordenação operacional e implementação de processos."
+      },
+      low: {
+        range: "0-24%",
+        description: "Flexível e orientado(a) à visão geral",
+        workplace: "Você prefere ter liberdade para inovar e não se prende a regras rígidas. Foca no panorama geral e pode deixar passar detalhes menores. Sua flexibilidade e criatividade são ideais para ambientes de inovação, startups, brainstorming, funções estratégicas e situações que exigem pensar fora da caixa mais do que seguir processos estabelecidos."
+      }
+    }
   }
 };

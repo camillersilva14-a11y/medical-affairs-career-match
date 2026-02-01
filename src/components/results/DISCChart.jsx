@@ -63,34 +63,77 @@ export default function DISCChart({ profile }) {
         </div>
 
         {/* Explicação detalhada de cada dimensão */}
-        <div className="space-y-3">
-          <p className="text-sm text-slate-600 italic">
+        <div className="space-y-4">
+          <p className="text-sm text-slate-600 italic mb-4">
             Cada dimensão do DISC representa um aspecto do seu comportamento profissional:
           </p>
           {dimensions.map((dim) => {
-            const isHigh = profile[dim.key] >= 50;
-            const description = isHigh 
-              ? discDescriptions[dim.key].high 
-              : discDescriptions[dim.key].low;
+            const score = profile[dim.key];
             
-            if (profile[dim.key] < 25) return null;
+            // Determinar o nível
+            let level, levelData;
+            if (score >= 75) {
+              level = 'veryHigh';
+              levelData = discDescriptions[dim.key].levels.veryHigh;
+            } else if (score >= 50) {
+              level = 'high';
+              levelData = discDescriptions[dim.key].levels.high;
+            } else if (score >= 25) {
+              level = 'moderate';
+              levelData = discDescriptions[dim.key].levels.moderate;
+            } else {
+              level = 'low';
+              levelData = discDescriptions[dim.key].levels.low;
+            }
+            
+            const isHighScore = score >= 50;
+            const isDominant = dim.key === dominantProfile;
             
             return (
-              <div key={dim.key} className={`p-4 rounded-xl ${dim.bgColor} border border-${dim.key === dominantProfile ? dim.textColor.replace('text-', '') + '/30' : 'transparent'}`}>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className={`font-semibold ${dim.textColor} text-lg`}>
-                    {dim.key}
-                  </span>
-                  <span className="text-slate-700 font-medium">
-                    {discDescriptions[dim.key].name}
-                  </span>
-                  <span className={`ml-auto px-3 py-1 rounded-full text-xs font-medium ${dim.bgColor} ${dim.textColor}`}>
-                    {profile[dim.key]}%
-                  </span>
+              <div 
+                key={dim.key} 
+                className={`p-5 rounded-xl ${dim.bgColor} border-2 ${isDominant ? 'border-' + dim.textColor.replace('text-', '') + '/40' : 'border-transparent'} transition-all hover:shadow-md`}
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-full ${dim.bgColor} ${dim.textColor} border-2 border-current flex items-center justify-center font-bold text-lg`}>
+                      {dim.key}
+                    </div>
+                    <div>
+                      <h5 className={`font-semibold ${dim.textColor} text-lg`}>
+                        {discDescriptions[dim.key].name}
+                      </h5>
+                      <p className="text-xs text-slate-500">
+                        {discDescriptions[dim.key].subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-bold ${dim.textColor} bg-white/80`}>
+                      {score}%
+                    </span>
+                    <p className="text-xs text-slate-500 mt-1">
+                      {levelData.range}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {isHigh ? '✓' : '○'} <span className="font-medium">{isHigh ? 'Alto:' : 'Moderado/Baixo:'}</span> {description}
-                </p>
+                
+                <div className="space-y-2">
+                  <p className={`text-sm font-medium ${dim.textColor}`}>
+                    {isHighScore ? '● ' : '○ '}{levelData.description}
+                  </p>
+                  <p className="text-sm text-slate-700 leading-relaxed">
+                    {levelData.workplace}
+                  </p>
+                </div>
+                
+                {isDominant && (
+                  <div className="mt-3 pt-3 border-t border-current/20">
+                    <p className="text-xs text-slate-600 italic">
+                      ⭐ Esta é sua característica mais marcante
+                    </p>
+                  </div>
+                )}
               </div>
             );
           })}
