@@ -36,7 +36,7 @@ export default function Layout({ children, currentPageName }) {
       <footer className="bg-white border-t border-slate-100 py-8 mt-auto">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-sm text-slate-500">
-            © 2026 Clinical Career Match • Especialista em Recrutamento para Pesquisa Clínica
+            © 2026 Clinical Career Match • Ferramenta especializada desenvolvida por Saude em Contexto
           </p>
 
         </div>
