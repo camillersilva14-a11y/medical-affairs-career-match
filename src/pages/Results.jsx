@@ -17,6 +17,8 @@ import SEO from '@/components/SEO';
 
 import JobCard from '@/components/results/JobCard';
 import DISCChart from '@/components/results/DISCChart';
+import CareerTips from '@/components/results/CareerTips';
+import ProfileComparison from '@/components/results/ProfileComparison';
 
 export default function Results() {
   const [assessment, setAssessment] = useState(null);
@@ -156,6 +158,33 @@ export default function Results() {
           <DISCChart profile={assessment.disc_profile} />
         </motion.div>
 
+        {/* Career Tips */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mb-10"
+        >
+          <CareerTips discProfile={assessment.disc_profile} />
+        </motion.div>
+
+        {/* Profile Comparison */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mb-10"
+        >
+          <ProfileComparison 
+            userProfile={assessment.disc_profile}
+            jobs={assessment.recommended_jobs?.map(job => ({
+              title: job.job_title,
+              profile: { D: 0, I: 0, S: 0, C: 0 },
+              ...job
+            })) || []}
+          />
+        </motion.div>
+
         {/* All Recommendations */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -198,7 +227,7 @@ export default function Results() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+          className="mt-16 flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link to={createPageUrl('Quiz')}>
             <Button variant="outline" className="w-full sm:w-auto">
