@@ -2,7 +2,7 @@
 export const jobsData = [
   {
     id: 1,
-    title: "Assistente de Pesquisa Clínica (Centro)",
+    title: "Assistente de Pesquisa Clínica",
     salary: "R$ 2.400 - R$ 3.500",
     description: "Suporte operacional em centros de pesquisa, preenchimento de CRF, contato com participantes.",
     profile: { D: 20, I: 40, S: 70, C: 60 },
@@ -20,7 +20,7 @@ export const jobsData = [
   },
   {
     id: 3,
-    title: "Coordenador de Projetos (Centro)",
+    title: "Coordenador de Projetos",
     salary: "R$ 4.000 - R$ 8.000",
     description: "Gestão de estudos clínicos, liderança de equipe, interface com patrocinadores.",
     profile: { D: 70, I: 60, S: 40, C: 50 },
