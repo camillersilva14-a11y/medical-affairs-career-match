@@ -13,9 +13,11 @@ export default function Layout({ children, currentPageName }) {
             to={createPageUrl('Home')} 
             className="flex items-center gap-2 text-slate-800 hover:text-teal-600 transition-colors"
           >
-            <div className="w-9 h-9 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center">
-              <FlaskConical className="w-5 h-5 text-white" />
-            </div>
+            <img 
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697f6e1c7c393db6e6f1476d/a843c2fce_Gemini_Generated_Image_qo562jqo562jqo56.png" 
+              alt="Clinical Career Match"
+              className="w-10 h-10 object-contain"
+            />
             <span className="font-semibold text-lg hidden sm:block">
               Clinical Career Match
             </span>
