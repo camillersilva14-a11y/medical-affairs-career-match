@@ -185,7 +185,7 @@ export default function Results() {
           transition={{ delay: 1 }}
           className="text-center text-sm text-slate-500 mt-12"
         >
-          Esta avaliação é uma ferramenta de orientação. As faixas salariais são baseadas no mercado brasileiro de 2024.
+          Esta avaliação é uma ferramenta de orientação. As faixas salariais são baseadas em dados do mercado brasileiro atualizados em janeiro de 2026.
         </motion.p>
       </div>
     </div>

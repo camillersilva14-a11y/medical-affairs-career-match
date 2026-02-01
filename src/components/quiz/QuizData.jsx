@@ -3,7 +3,7 @@ export const jobsData = [
   {
     id: 1,
     title: "Assistente de Pesquisa Clínica",
-    salary: "R$ 2.400 - R$ 3.500",
+    salary: "R$ 3.000 - R$ 5.800",
     description: "Suporte operacional em centros de pesquisa, preenchimento de CRF, contato com participantes.",
     profile: { D: 20, I: 40, S: 70, C: 60 },
     skills: ["organizacao", "empatia", "suporte", "atencao_detalhes"],
@@ -11,8 +11,8 @@ export const jobsData = [
   },
   {
     id: 2,
-    title: "Analista de Dados no Centro",
-    salary: "R$ 3.000 - R$ 4.900",
+    title: "Analista de Dados Clínicos",
+    salary: "R$ 3.500 - R$ 6.500",
     description: "Gestão e integridade de dados clínicos, análise e validação.",
     profile: { D: 30, I: 20, S: 50, C: 90 },
     skills: ["atencao_detalhes", "foco", "raciocinio_logico", "integridade"],
@@ -21,7 +21,7 @@ export const jobsData = [
   {
     id: 3,
     title: "Coordenador de Projetos",
-    salary: "R$ 4.000 - R$ 8.000",
+    salary: "R$ 4.400 - R$ 9.300",
     description: "Gestão de estudos clínicos, liderança de equipe, interface com patrocinadores.",
     profile: { D: 70, I: 60, S: 40, C: 50 },
     skills: ["lideranca", "visao_sistemica", "comunicacao", "resiliencia", "gestao"],
@@ -30,7 +30,7 @@ export const jobsData = [
   {
     id: 4,
     title: "Farmacêutico de Pesquisa",
-    salary: "R$ 4.000 - R$ 6.000",
+    salary: "R$ 4.500 - R$ 7.000",
     description: "Controle de medicamentos investigacionais, dispensação, compliance.",
     profile: { D: 30, I: 30, S: 60, C: 85 },
     skills: ["compliance", "atencao_detalhes", "controle", "tecnico"],
@@ -39,7 +39,7 @@ export const jobsData = [
   {
     id: 5,
     title: "Analista de Pesquisa Clínica Jr (CTA)",
-    salary: "R$ 4.000 - R$ 5.000",
+    salary: "R$ 4.000 - R$ 6.000",
     description: "Suporte operacional na indústria, gestão documental, conhecimento em GCP.",
     profile: { D: 35, I: 35, S: 55, C: 75 },
     skills: ["organizacao", "gcp", "documental", "suporte"],
@@ -48,7 +48,7 @@ export const jobsData = [
   {
     id: 6,
     title: "Analista de Assuntos Regulatórios",
-    salary: "R$ 4.000 - R$ 6.000",
+    salary: "R$ 4.500 - R$ 7.500",
     description: "Elaboração de dossiês, interface com ANVISA, conhecimento regulatório.",
     profile: { D: 40, I: 30, S: 45, C: 85 },
     skills: ["legislacao", "leitura_tecnica", "visao_sistemica", "documental"],
@@ -57,7 +57,7 @@ export const jobsData = [
   {
     id: 7,
     title: "Assistente de Farmacovigilância",
-    salary: "R$ 3.500 - R$ 5.700",
+    salary: "R$ 3.800 - R$ 6.200",
     description: "Análise de eventos adversos, reporte de segurança, documentação.",
     profile: { D: 25, I: 25, S: 55, C: 80 },
     skills: ["analise", "seguranca", "ingles", "atencao_detalhes"],
@@ -66,7 +66,7 @@ export const jobsData = [
   {
     id: 8,
     title: "Analista de Logística",
-    salary: "R$ 3.800 - R$ 5.500",
+    salary: "R$ 4.200 - R$ 6.500",
     description: "Gestão de cadeia fria, importação de materiais, controle de prazos.",
     profile: { D: 55, I: 35, S: 45, C: 70 },
     skills: ["resolucao_problemas", "urgencia", "gestao", "prazos"],
@@ -75,7 +75,7 @@ export const jobsData = [
   {
     id: 9,
     title: "Analista de Dados Clínicos (CRO)",
-    salary: "R$ 4.000 - R$ 6.000",
+    salary: "R$ 4.500 - R$ 7.000",
     description: "Design de banco de dados, validação, programação de CRF eletrônico.",
     profile: { D: 35, I: 20, S: 50, C: 90 },
     skills: ["raciocinio_logico", "banco_dados", "validacao", "tecnico"],
@@ -84,7 +84,7 @@ export const jobsData = [
   {
     id: 10,
     title: "Monitor de Pesquisa Clínica (CRA)",
-    salary: "R$ 6.000 - R$ 10.000",
+    salary: "R$ 7.000 - R$ 12.000",
     description: "Monitoramento de centros, viagens frequentes, supervisão de qualidade.",
     profile: { D: 65, I: 55, S: 35, C: 65 },
     skills: ["comunicacao", "pressao", "pensamento_critico", "viagens", "autonomia"],
@@ -93,7 +93,7 @@ export const jobsData = [
   {
     id: 11,
     title: "Medical Writer",
-    salary: "R$ 4.000 - R$ 6.000",
+    salary: "R$ 4.500 - R$ 7.500",
     description: "Redação científica, elaboração de protocolos e relatórios.",
     profile: { D: 30, I: 25, S: 60, C: 85 },
     skills: ["redacao", "ingles", "interpretacao", "isolamento", "tecnico"],
