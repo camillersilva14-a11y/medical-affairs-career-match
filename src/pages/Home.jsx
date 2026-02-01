@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,8 @@ import {
 import SEO from '@/components/SEO';
 
 export default function Home() {
+  const navigate = useNavigate();
+
   const features = [
     {
       icon: Brain,
@@ -70,15 +72,14 @@ export default function Home() {
           </p>
 
           {/* CTA Button */}
-          <Link to={createPageUrl('Quiz')}>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-teal-200 hover:shadow-xl transition-all duration-300"
-            >
-              Iniciar Avaliação Gratuita
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
+          <Button 
+            size="lg" 
+            onClick={() => navigate(createPageUrl('Quiz'))}
+            className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-teal-200 hover:shadow-xl transition-all duration-300"
+          >
+            Iniciar Avaliação Gratuita
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
 
           <p className="text-sm text-slate-500 mt-4">
             ⏱️ Apenas 5 minutos • 🔒 100% confidencial
