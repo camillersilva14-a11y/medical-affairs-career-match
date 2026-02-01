@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, ArrowRight, Loader2, User, Mail, Briefcase } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import SEO from '@/components/SEO';
 
 import ProgressBar from '@/components/quiz/ProgressBar';
 import QuestionCard from '@/components/quiz/QuestionCard';
@@ -131,7 +132,13 @@ export default function Quiz() {
 
   if (step === 'intro') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 py-12 px-4">
+      <>
+        <SEO 
+          title="Avaliação de Carreira - Clinical Career Match"
+          description="Responda 26 perguntas sobre seu perfil comportamental e aptidões técnicas. Receba recomendações personalizadas das melhores vagas na Pesquisa Clínica."
+          keywords="teste DISC, avaliação de carreira, perfil comportamental, aptidões técnicas, quiz pesquisa clínica"
+        />
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 py-12 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

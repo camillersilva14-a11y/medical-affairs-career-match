@@ -13,6 +13,7 @@ import {
   Users,
   TrendingUp
 } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 export default function Home() {
   const features = [
@@ -40,7 +41,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30">
+    <>
+      <SEO 
+        title="Clinical Career Match - Descubra sua Carreira Ideal na Pesquisa Clínica"
+        description="Teste gratuito de avaliação comportamental DISC + análise de aptidões técnicas. Descubra as melhores vagas de entrada na Pesquisa Clínica em apenas 5 minutos. CRA, Coordenador, Analista de Dados e mais."
+        keywords="pesquisa clínica, carreira pesquisa clínica, teste DISC, CRA, monitor clínico, coordenador de estudos, analista de dados clínicos, farmacovigilância, assuntos regulatórios, vagas pesquisa clínica, orientação profissional farmacêutica"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30">
       {/* Hero Section */}
       <div className="max-w-6xl mx-auto px-4 pt-12 md:pt-20 pb-16">
         <motion.div
@@ -143,5 +150,6 @@ export default function Home() {
 
       </div>
     </div>
+    </>
   );
 }

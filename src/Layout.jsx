@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { FlaskConical } from 'lucide-react';
+import { HelmetProvider } from 'react-helmet-async';
 
 export default function Layout({ children, currentPageName }) {
   return (
+    <HelmetProvider>
     <div className="min-h-screen bg-slate-50">
       {/* Simple Header */}
       <header className="bg-slate-50/90 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50">
@@ -39,6 +41,7 @@ export default function Layout({ children, currentPageName }) {
 
         </div>
       </footer>
-    </div>);
+    </div>
+    </HelmetProvider>);
 
 }

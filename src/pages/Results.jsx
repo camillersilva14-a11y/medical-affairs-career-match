@@ -189,5 +189,6 @@ export default function Results() {
         </motion.p>
       </div>
     </div>
+    </>
   );
 }
