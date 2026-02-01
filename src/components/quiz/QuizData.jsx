@@ -4,7 +4,7 @@ export const jobsData = [
     id: 1,
     title: "Assistente de Pesquisa Clínica",
     salary: "R$ 3.000 - R$ 5.800",
-    description: "Suporte operacional em centros de pesquisa, preenchimento de CRF, contato com participantes.",
+    description: "Suporte operacional em centros de pesquisa clínica, preenchimento de CRF, contato com participantes.",
     profile: { D: 20, I: 40, S: 70, C: 60 },
     skills: ["organizacao", "empatia", "suporte", "atencao_detalhes"],
     keywords: ["organização", "suporte", "preenchimento de CRF", "empatia"]
@@ -85,7 +85,7 @@ export const jobsData = [
     id: 10,
     title: "Monitor de Pesquisa Clínica (CRA)",
     salary: "R$ 7.000 - R$ 12.000",
-    description: "Monitoramento de centros, viagens frequentes, supervisão de qualidade.",
+    description: "Monitoramento de centros de pesquisa clínica, viagens frequentes, supervisão de qualidade.",
     profile: { D: 65, I: 55, S: 35, C: 65 },
     skills: ["comunicacao", "pressao", "pensamento_critico", "viagens", "autonomia"],
     keywords: ["supervisão", "viagens", "comunicação assertiva", "pressão", "pensamento crítico"]
