@@ -18,6 +18,7 @@ import SEO from '@/components/SEO';
 import JobCard from '@/components/results/JobCard';
 import DISCChart from '@/components/results/DISCChart';
 import CareerDetailsModal from '@/components/results/CareerDetailsModal';
+import RealJobsSection from '@/components/results/RealJobsSection';
 
 export default function Results() {
   const [assessment, setAssessment] = useState(null);
@@ -204,6 +205,9 @@ export default function Results() {
                     ))}
                   </div>
         </motion.div>
+
+        {/* Real Jobs Section */}
+        <RealJobsSection />
 
         {/* Actions */}
         <motion.div
