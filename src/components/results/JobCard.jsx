@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, DollarSign, Target, Users, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { TrendingUp, DollarSign, Target, Users, ThumbsUp, ThumbsDown, ExternalLink, Sparkles } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 export default function JobCard({ job, rank, delay = 0, onFeedback, jobIndex }) {
@@ -50,10 +50,27 @@ export default function JobCard({ job, rank, delay = 0, onFeedback, jobIndex }) 
               {rank}º
             </div>
           )}
-          <div>
-            <h3 className="text-lg font-semibold text-slate-800">{job.title}</h3>
-            <div className="flex items-center gap-1 text-emerald-600 mt-1">
-              <span className="text-sm font-medium">{job.salary}</span>
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-slate-800">{job.title}</h3>
+              {job.isRealJob && (
+                <Badge className="bg-purple-100 text-purple-700 text-xs">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  Vaga Real
+                </Badge>
+              )}
+            </div>
+            {job.company && (
+              <p className="text-sm text-slate-500 mt-0.5">{job.company}</p>
+            )}
+            <div className="flex items-center gap-2 mt-1">
+              <span className="text-sm font-medium text-emerald-600">{job.salary}</span>
+              {job.location && (
+                <span className="text-xs text-slate-400">• {job.location}</span>
+              )}
+              {job.workType && (
+                <span className="text-xs text-slate-400">• {job.workType}</span>
+              )}
             </div>
           </div>
         </div>
@@ -100,6 +117,19 @@ export default function JobCard({ job, rank, delay = 0, onFeedback, jobIndex }) 
           </Badge>
         ))}
       </div>
+
+      {/* Job URL for real jobs */}
+      {job.jobUrl && (
+        <a 
+          href={job.jobUrl} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-sm text-teal-600 hover:text-teal-700 mb-4"
+        >
+          <ExternalLink className="w-4 h-4" />
+          Ver vaga completa
+        </a>
+      )}
 
       {/* Feedback Buttons */}
       <div className="flex items-center gap-3 pt-4 border-t border-slate-200">

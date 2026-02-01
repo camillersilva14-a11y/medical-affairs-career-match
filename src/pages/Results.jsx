@@ -177,10 +177,10 @@ export default function Results() {
         >
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-slate-800 mb-2">
-              Suas Top 5 Vagas Recomendadas
+              Suas Vagas Recomendadas
             </h2>
             <p className="text-slate-600 text-sm">
-              💼 Vagas de entrada para iniciar sua carreira em Pesquisa Clínica
+              💼 Combinando análise de perfil com vagas reais do mercado
             </p>
           </div>
           <div className="grid gap-4">
@@ -189,12 +189,17 @@ export default function Results() {
                 key={index}
                 job={{
                   title: job.job_title,
+                  company: job.company,
                   salary: job.salary_range,
                   description: job.description,
                   matchPercentage: job.match_percentage,
                   discMatch: job.disc_match,
                   techMatch: job.tech_match,
                   keywords: job.keywords || [],
+                  location: job.location,
+                  workType: job.work_type,
+                  jobUrl: job.job_url,
+                  isRealJob: job.is_real_job,
                   feedback: job.feedback || 'none'
                 }}
                 rank={index + 1}

@@ -131,6 +131,45 @@ export default function Quiz() {
         feedback: 'none'
       }));
 
+    // Buscar vagas reais do mercado
+    let realMarketJobs = [];
+    try {
+      const jobSearchResponse = await base44.functions.invoke('searchClinicalResearchJobs', {
+        userProfile: {
+          user_name: userInfo.name,
+          current_area: userInfo.currentArea,
+          career_goals: userInfo.careerGoals,
+          relocation_preference: userInfo.relocationPreference,
+          company_culture: userInfo.companyCulture,
+          disc_profile: discProfile
+        },
+        excludedJobs: []
+      });
+
+      if (jobSearchResponse.data?.success && jobSearchResponse.data.jobs?.length > 0) {
+        realMarketJobs = jobSearchResponse.data.jobs.slice(0, 5).map(job => ({
+          job_title: job.title,
+          company: job.company || 'Empresa não divulgada',
+          match_percentage: 75, // Score base para vagas reais
+          salary_range: job.salary_range || 'A combinar',
+          description: job.description,
+          location: job.location,
+          work_type: job.work_type || 'Presencial',
+          job_url: job.job_url,
+          disc_match: 70,
+          tech_match: 80,
+          keywords: ['vaga real', 'mercado atual'],
+          feedback: 'none',
+          is_real_job: true
+        }));
+      }
+    } catch (error) {
+      console.log('Não foi possível buscar vagas do mercado:', error);
+    }
+
+    // Combinar vagas calculadas com vagas reais do mercado
+    const allRecommendedJobs = [...recommendedJobs, ...realMarketJobs];
+
     // Save to database
     const assessment = await base44.entities.Assessment.create({
       user_name: userInfo.name,
@@ -142,7 +181,7 @@ export default function Quiz() {
       answers: finalAnswers,
       disc_profile: discProfile,
       technical_scores: technicalScores,
-      recommended_jobs: recommendedJobs,
+      recommended_jobs: allRecommendedJobs,
       excluded_jobs: [],
       status: 'completed'
     });
