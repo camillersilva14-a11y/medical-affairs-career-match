@@ -41,26 +41,32 @@ export default function Results() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 text-teal-600 animate-spin" />
-      </div>
+      <>
+        <SEO />
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 flex items-center justify-center">
+          <Loader2 className="w-8 h-8 text-teal-600 animate-spin" />
+        </div>
+      </>
     );
   }
 
   if (!assessment) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 flex items-center justify-center px-4">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-slate-800 mb-4">
-            Resultado não encontrado
-          </h2>
-          <Link to={createPageUrl('Quiz')}>
-            <Button className="bg-teal-600 hover:bg-teal-700">
-              Fazer nova avaliação
-            </Button>
-          </Link>
+      <>
+        <SEO />
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 flex items-center justify-center px-4">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">
+              Resultado não encontrado
+            </h2>
+            <Link to={createPageUrl('Quiz')}>
+              <Button className="bg-teal-600 hover:bg-teal-700">
+                Fazer nova avaliação
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
