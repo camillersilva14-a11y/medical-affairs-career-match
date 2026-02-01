@@ -70,8 +70,7 @@ export default function Home() {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
-            Avaliação comportamental DISC + análise de aptidões técnicas para 
-            encontrar a vaga perfeita na área da saúde para você
+            Faça o teste de avaliação comportamental + análise de aptidões técnicas e encontre as melhores vagas para você
           </p>
 
           {/* CTA Button */}
