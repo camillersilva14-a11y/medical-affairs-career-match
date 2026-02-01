@@ -167,7 +167,7 @@ export default function Quiz() {
               <div className="space-y-2">
                 <Label htmlFor="area" className="text-slate-700 flex items-center gap-2">
                   <Briefcase className="w-4 h-4" />
-                  Área atual de atuação (opcional)
+                  Área de formação (opcional)
                 </Label>
                 <Input
                   id="area"
