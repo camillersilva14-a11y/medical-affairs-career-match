@@ -17,14 +17,10 @@ import SEO from '@/components/SEO';
 
 import JobCard from '@/components/results/JobCard';
 import DISCChart from '@/components/results/DISCChart';
-import CareerDetailsModal from '@/components/results/CareerDetailsModal';
-import RealJobsSection from '@/components/results/RealJobsSection';
 
 export default function Results() {
   const [assessment, setAssessment] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     loadAssessment();
@@ -60,11 +56,6 @@ export default function Results() {
       ...assessment,
       recommended_jobs: updatedJobs
     });
-  };
-
-  const handleShowDetails = (job) => {
-    setSelectedJob(job);
-    setShowModal(true);
   };
 
   if (isLoading) {
@@ -180,34 +171,27 @@ export default function Results() {
             </p>
           </div>
           <div className="grid gap-4">
-                    {assessment.recommended_jobs?.map((job, index) => (
-                      <JobCard
-                        key={index}
-                        job={{
-                          title: job.job_title,
-                          salary: job.salary_range,
-                          description: job.description,
-                          matchPercentage: job.match_percentage,
-                          discMatch: job.disc_match,
-                          techMatch: job.tech_match,
-                          keywords: job.keywords || [],
-                          feedback: job.feedback || 'none',
-                          fullDescription: job.full_description,
-                          requirements: job.requirements,
-                          tips: job.tips
-                        }}
-                        rank={index + 1}
-                        delay={0.1 * index}
-                        jobIndex={index}
-                        onFeedback={handleFeedback}
-                        onShowDetails={handleShowDetails}
-                      />
-                    ))}
-                  </div>
+            {assessment.recommended_jobs?.map((job, index) => (
+              <JobCard
+                key={index}
+                job={{
+                  title: job.job_title,
+                  salary: job.salary_range,
+                  description: job.description,
+                  matchPercentage: job.match_percentage,
+                  discMatch: job.disc_match,
+                  techMatch: job.tech_match,
+                  keywords: job.keywords || [],
+                  feedback: job.feedback || 'none'
+                }}
+                rank={index + 1}
+                delay={0.1 * index}
+                jobIndex={index}
+                onFeedback={handleFeedback}
+              />
+            ))}
+          </div>
         </motion.div>
-
-        {/* Real Jobs Section */}
-        <RealJobsSection />
 
         {/* Actions */}
         <motion.div
@@ -239,15 +223,8 @@ export default function Results() {
         >
           Esta avaliação é uma ferramenta de orientação. As faixas salariais são baseadas em dados do mercado brasileiro atualizados em janeiro de 2026.
         </motion.p>
-        </div>
-        </div>
-
-        {/* Career Details Modal */}
-        <CareerDetailsModal 
-        isOpen={showModal} 
-        job={selectedJob} 
-        onClose={() => setShowModal(false)} 
-        />
-        </>
-        );
-        }
+      </div>
+    </div>
+    </>
+  );
+}
