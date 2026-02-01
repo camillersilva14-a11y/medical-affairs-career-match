@@ -190,7 +190,7 @@ export default function Quiz() {
           </div>
 
           <p className="text-center text-sm text-slate-500 mt-6">
-            📋 20 perguntas • ⏱️ ~5 minutos
+            📋 26 perguntas • ⏱️ ~6 minutos
           </p>
         </motion.div>
       </div>
