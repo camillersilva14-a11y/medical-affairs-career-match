@@ -15,13 +15,17 @@ export default function ToolFeedback({ assessmentId }) {
 
     setIsLoading(true);
     try {
-      await base44.functions.invoke('submitToolFeedback', {
-        assessmentId,
-        rating,
-        feedback: feedback.trim() || null
+      await base44.entities.Assessment.update(assessmentId, {
+        tool_feedback: {
+          rating,
+          feedback: feedback.trim() || null,
+          submitted_at: new Date().toISOString()
+        }
       });
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 3000);
+      setRating(null);
+      setFeedback('');
     } catch (error) {
       console.error('Erro ao enviar feedback:', error);
     } finally {
