@@ -82,15 +82,6 @@ export const jobsData = [
     keywords: ["design de banco de dados", "validação", "raciocínio lógico"]
   },
   {
-    id: 10,
-    title: "Monitor de Pesquisa Clínica (CRA)",
-    salary: "R$ 7.000 - R$ 12.000",
-    description: "Monitoramento de centros de pesquisa clínica, viagens frequentes, supervisão de qualidade.",
-    profile: { D: 65, I: 55, S: 35, C: 65 },
-    skills: ["comunicacao", "pressao", "pensamento_critico", "viagens", "autonomia"],
-    keywords: ["supervisão", "viagens", "comunicação assertiva", "pressão", "pensamento crítico"]
-  },
-  {
     id: 11,
     title: "Medical Writer",
     salary: "R$ 4.500 - R$ 7.500",
