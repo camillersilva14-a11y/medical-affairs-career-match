@@ -15,7 +15,7 @@ export default function Layout({ children, currentPageName }) {
 
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697f6e1c7c393db6e6f1476d/7acad2786_Gemini_Generated_Image_2rll5m2rll5m2rll1.png"
-              alt="Clinical Career Match" className="w-24 h-24 object-contain rounded-full" />
+              alt="Clinical Career Match" className="w-24 h-24 object-contain" />
 
 
             <span className="font-semibold text-lg hidden sm:block">
