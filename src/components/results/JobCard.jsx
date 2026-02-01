@@ -51,7 +51,6 @@ export default function JobCard({ job, rank, delay = 0 }) {
           <div>
             <h3 className="text-lg font-semibold text-slate-800">{job.title}</h3>
             <div className="flex items-center gap-1 text-emerald-600 mt-1">
-              <DollarSign className="w-4 h-4" />
               <span className="text-sm font-medium">{job.salary}</span>
             </div>
           </div>
