@@ -43,24 +43,58 @@ export default function DISCChart({ profile }) {
 
       {/* Interpretation */}
       <div className="space-y-4">
-        <h4 className="font-semibold text-slate-700">Interpretação do seu perfil:</h4>
-        {dimensions.map((dim) => {
-          const isHigh = profile[dim.key] >= 50;
-          const description = isHigh 
-            ? discDescriptions[dim.key].high 
-            : discDescriptions[dim.key].low;
-          
-          if (profile[dim.key] < 30) return null;
-          
-          return (
-            <div key={dim.key} className={`p-4 rounded-xl ${dim.bgColor}`}>
-              <span className={`font-medium ${dim.textColor}`}>
-                {discDescriptions[dim.key].name} ({profile[dim.key]}%):
-              </span>
-              <p className="text-sm text-slate-600 mt-1">{description}</p>
+        <h4 className="font-semibold text-slate-700 text-lg mb-4">O que seu perfil DISC revela:</h4>
+        
+        {/* Destaque do perfil dominante */}
+        <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border-2 border-teal-200 rounded-xl p-5 mb-4">
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-bold text-lg">{dominantProfile}</span>
             </div>
-          );
-        })}
+            <div>
+              <h5 className="font-semibold text-teal-700 mb-1">
+                Seu perfil dominante: {discDescriptions[dominantProfile].name}
+              </h5>
+              <p className="text-sm text-slate-700 leading-relaxed">
+                {discDescriptions[dominantProfile].high}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Explicação detalhada de cada dimensão */}
+        <div className="space-y-3">
+          <p className="text-sm text-slate-600 italic">
+            Cada dimensão do DISC representa um aspecto do seu comportamento profissional:
+          </p>
+          {dimensions.map((dim) => {
+            const isHigh = profile[dim.key] >= 50;
+            const description = isHigh 
+              ? discDescriptions[dim.key].high 
+              : discDescriptions[dim.key].low;
+            
+            if (profile[dim.key] < 25) return null;
+            
+            return (
+              <div key={dim.key} className={`p-4 rounded-xl ${dim.bgColor} border border-${dim.key === dominantProfile ? dim.textColor.replace('text-', '') + '/30' : 'transparent'}`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`font-semibold ${dim.textColor} text-lg`}>
+                    {dim.key}
+                  </span>
+                  <span className="text-slate-700 font-medium">
+                    {discDescriptions[dim.key].name}
+                  </span>
+                  <span className={`ml-auto px-3 py-1 rounded-full text-xs font-medium ${dim.bgColor} ${dim.textColor}`}>
+                    {profile[dim.key]}%
+                  </span>
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {isHigh ? '✓' : '○'} <span className="font-medium">{isHigh ? 'Alto:' : 'Moderado/Baixo:'}</span> {description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
