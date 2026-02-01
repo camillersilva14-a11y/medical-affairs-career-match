@@ -96,7 +96,7 @@ export default function Results() {
             Parabéns, {assessment.user_name}!
           </h1>
           <p className="text-lg text-slate-600">
-            Analisamos seu perfil e encontramos as melhores oportunidades para você
+            Analisamos o seu perfil e encontramos as melhores oportunidades de entrada na Pesquisa Clínica para você
           </p>
         </motion.div>
 
