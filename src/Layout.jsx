@@ -8,14 +8,14 @@ export default function Layout({ children, currentPageName }) {
     <div className="min-h-screen bg-slate-50">
       {/* Simple Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-slate-100 sticky top-0 z-50">
-        <div className="bg-slate-100 mx-auto px-4 max-w-6xl h-16 flex items-center justify-between">
+        <div className="mx-auto px-4 max-w-6xl h-16 flex items-center justify-between">
           <Link
             to={createPageUrl('Home')}
             className="flex items-center gap-2 text-slate-800 hover:text-teal-600 transition-colors">
 
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697f6e1c7c393db6e6f1476d/e3def5710_Gemini_Generated_Image_2rll5m2rll5m2rll.png"
-              alt="Clinical Career Match" className="bg-slate-50 w-24 h-24 object-contain" />
+              alt="Clinical Career Match" className="w-24 h-24 object-contain" />
 
 
             <span className="font-semibold text-lg hidden sm:block">
