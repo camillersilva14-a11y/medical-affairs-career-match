@@ -295,27 +295,6 @@ export default function Quiz() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="relocation" className="text-slate-700 flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  Preferência de localização
-                </Label>
-                <Select 
-                  value={userInfo.relocationPreference} 
-                  onValueChange={(value) => setUserInfo({ ...userInfo, relocationPreference: value })}
-                >
-                  <SelectTrigger className="h-12 rounded-xl border-slate-200">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="flexible">Flexível</SelectItem>
-                    <SelectItem value="no_relocation">Não posso me mudar</SelectItem>
-                    <SelectItem value="open_to_relocation">Aberto a mudanças</SelectItem>
-                    <SelectItem value="remote_only">Apenas remoto</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
                 <Label htmlFor="culture" className="text-slate-700 flex items-center gap-2">
                   <Building2 className="w-4 h-4" />
                   Cultura empresarial preferida
