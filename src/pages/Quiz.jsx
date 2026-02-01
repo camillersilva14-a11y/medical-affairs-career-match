@@ -162,20 +162,7 @@ export default function Quiz() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-slate-700 flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  Seu e-mail (opcional)
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={userInfo.email}
-                  onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
-                  className="h-12 rounded-xl border-slate-200 focus:border-teal-500 focus:ring-teal-500"
-                />
-              </div>
+
 
               <div className="space-y-2">
                 <Label htmlFor="area" className="text-slate-700 flex items-center gap-2">
