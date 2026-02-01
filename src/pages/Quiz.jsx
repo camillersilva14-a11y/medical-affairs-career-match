@@ -280,20 +280,6 @@ export default function Quiz() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="goals" className="text-slate-700 flex items-center gap-2">
-                  <Target className="w-4 h-4" />
-                  Objetivos de carreira (opcional)
-                </Label>
-                <Textarea
-                  id="goals"
-                  placeholder="Ex: Desejo trabalhar com gestão de projetos, busco crescimento rápido..."
-                  value={userInfo.careerGoals}
-                  onChange={(e) => setUserInfo({ ...userInfo, careerGoals: e.target.value })}
-                  className="rounded-xl border-slate-200 focus:border-teal-500 focus:ring-teal-500 min-h-[80px]"
-                />
-              </div>
-
               <Button
                 onClick={handleStartQuiz}
                 disabled={!userInfo.name.trim()}
