@@ -29,7 +29,7 @@ export default function Home() {
     {
       icon: Briefcase,
       title: "Carreiras reais",
-      description: "Vagas reais do mercado de Pesquisa Clínica com faixas salariais"
+      description: "Encontre as vagas certas para você no mercado farmacêutico"
     }
   ];
 
