@@ -55,7 +55,7 @@ export default function CareerDetailsModal({ isOpen, job, onClose }) {
                   <h3 className="text-lg font-semibold text-slate-800">Requisitos</h3>
                 </div>
                 <ul className="space-y-2">
-                  {job.requirements.map((req, index) => (
+                  {job.requirements && job.requirements.map((req, index) => (
                     <li key={index} className="flex gap-3">
                       <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                       <span className="text-slate-600">{req}</span>
@@ -71,7 +71,7 @@ export default function CareerDetailsModal({ isOpen, job, onClose }) {
                   <h3 className="text-lg font-semibold text-slate-800">Dicas para Ingressar</h3>
                 </div>
                 <ul className="space-y-2">
-                  {job.tips.map((tip, index) => (
+                  {job.tips && job.tips.map((tip, index) => (
                     <li key={index} className="flex gap-3">
                       <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 text-xs font-semibold shrink-0 mt-0.5">
                         {index + 1}
@@ -86,7 +86,7 @@ export default function CareerDetailsModal({ isOpen, job, onClose }) {
               <div>
                 <h3 className="text-lg font-semibold text-slate-800 mb-3">Palavras-chave</h3>
                 <div className="flex flex-wrap gap-2">
-                  {job.keywords.map((keyword, index) => (
+                  {job.keywords && job.keywords.map((keyword, index) => (
                     <span
                       key={index}
                       className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium"
