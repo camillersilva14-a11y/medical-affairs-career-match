@@ -7,7 +7,22 @@ export const jobsData = [
     description: "Suporte operacional em centros de pesquisa clínica, preenchimento de CRF, contato com participantes.",
     profile: { D: 20, I: 40, S: 70, C: 60 },
     skills: ["organizacao", "empatia", "suporte", "atencao_detalhes"],
-    keywords: ["organização", "suporte", "preenchimento de CRF", "empatia"]
+    keywords: ["organização", "suporte", "preenchimento de CRF", "empatia"],
+    fullDescription: "O Assistente de Pesquisa Clínica é responsável por fornecer suporte operacional essencial em centros de pesquisa clínica. Trabalha na coleta de dados, preenchimento de formulários de relatório de caso (CRF), agendamento de participantes, acompanhamento de testes e comunicação com voluntários de pesquisa.",
+    requirements: [
+      "Ensino Médio completo (obrigatório)",
+      "Atenção aos detalhes e organização",
+      "Facilidade em comunicação e empatia",
+      "Capacidade de trabalhar em equipe",
+      "Conhecimento básico de informática"
+    ],
+    tips: [
+      "Comece por vagas em centros de pesquisa ou hospitais universitários",
+      "Considere fazer cursos online sobre GCP (Boas Práticas Clínicas)",
+      "Desenvolva habilidades de comunicação interpessoal",
+      "Experimente-se em ambientes de saúde para entender o contexto",
+      "Networking com profissionais da área é fundamental"
+    ]
   },
   {
     id: 2,
@@ -16,7 +31,22 @@ export const jobsData = [
     description: "Gestão e integridade de dados clínicos, análise e validação.",
     profile: { D: 30, I: 20, S: 50, C: 90 },
     skills: ["atencao_detalhes", "foco", "raciocinio_logico", "integridade"],
-    keywords: ["atenção aos detalhes", "foco", "integridade de dados"]
+    keywords: ["atenção aos detalhes", "foco", "integridade de dados"],
+    fullDescription: "O Analista de Dados Clínicos garante a qualidade, completude e precisão dos dados em estudos clínicos. Trabalha com banco de dados, valida informações, identifica e corrige inconsistências, garantindo conformidade regulatória e integridade dos dados para análises estatísticas.",
+    requirements: [
+      "Graduação em Biomedicina, Farmácia, Estatística ou similar (preferido)",
+      "Domínio de Excel avançado e conhecimento de SQL",
+      "Excelente atenção aos detalhes",
+      "Conhecimento de GCP e regulamentações clínicas",
+      "Habilidades analíticas fortes"
+    ],
+    tips: [
+      "Aprenda Excel avançado e noções de SQL",
+      "Faça cursos sobre GCP (Good Clinical Practice)",
+      "Familiarize-se com sistemas EDC (Electronic Data Capture)",
+      "Desenvolva pensamento analítico e raciocínio lógico",
+      "Busque estágios em CROs ou departamentos de pesquisa"
+    ]
   },
   {
     id: 3,
@@ -25,7 +55,22 @@ export const jobsData = [
     description: "Gestão de estudos clínicos, liderança de equipe, interface com patrocinadores.",
     profile: { D: 70, I: 60, S: 40, C: 50 },
     skills: ["lideranca", "visao_sistemica", "comunicacao", "resiliencia", "gestao"],
-    keywords: ["gestão", "visão sistêmica", "comunicação", "resiliência"]
+    keywords: ["gestão", "visão sistêmica", "comunicação", "resiliência"],
+    fullDescription: "O Coordenador de Projetos supervisiona a execução de estudos clínicos, gerenciando timelines, orçamentos, recursos e comunicação entre todas as partes interessadas. Lidera equipes multidisciplinares e garante que os estudos sejam executados conforme planejado.",
+    requirements: [
+      "Graduação em qualquer área (Saúde preferido)",
+      "Experiência em gestão de projetos",
+      "Liderança e habilidades de comunicação",
+      "Conhecimento de GCP e regulamentações",
+      "Experiência com ferramentas de gestão de projetos"
+    ],
+    tips: [
+      "Estude para certificação PMP ou PRINCE2",
+      "Desenvolva habilidades de liderança e comunicação",
+      "Faça curso especializado em Gestão de Pesquisa Clínica",
+      "Aprenda sobre fases de desenvolvimento de medicamentos",
+      "Comece como Assistente ou Analista antes de coordenar"
+    ]
   },
   {
     id: 4,
@@ -34,7 +79,22 @@ export const jobsData = [
     description: "Controle de medicamentos investigacionais, dispensação, compliance.",
     profile: { D: 30, I: 30, S: 60, C: 85 },
     skills: ["compliance", "atencao_detalhes", "controle", "tecnico"],
-    keywords: ["controle de estoque", "compliance", "dispensação", "atenção técnica"]
+    keywords: ["controle de estoque", "compliance", "dispensação", "atenção técnica"],
+    fullDescription: "O Farmacêutico de Pesquisa gerencia medicamentos investigacionais em estudos clínicos, garantindo conformidade com regulamentações, controle de estoque, dispensação adequada e rastreamento de medicamentos. Trabalha no cumprimento de requisitos legais e regulatórios.",
+    requirements: [
+      "Graduação em Farmácia (obrigatório)",
+      "Registro profissional ativo no CRF",
+      "Conhecimento de legislação farmacêutica",
+      "Excelente atenção aos detalhes",
+      "Familiaridade com farmacocinética e regulamentos GCP"
+    ],
+    tips: [
+      "Tenha registro ativo no CRF (Conselho de Farmácia)",
+      "Estude legislação farmacêutica e regulatória",
+      "Faça cursos especializados em Assuntos Regulatórios",
+      "Aprenda sobre cadeia de frio e armazenamento",
+      "Busque experiência em hospitais ou laboratórios"
+    ]
   },
   {
     id: 5,
@@ -43,7 +103,22 @@ export const jobsData = [
     description: "Suporte operacional na indústria, gestão documental, conhecimento em GCP.",
     profile: { D: 35, I: 35, S: 55, C: 75 },
     skills: ["organizacao", "gcp", "documental", "suporte"],
-    keywords: ["suporte operacional", "GCP", "organização documental"]
+    keywords: ["suporte operacional", "GCP", "organização documental"],
+    fullDescription: "O Analista de Pesquisa Clínica Junior atua em empresas farmacêuticas e CROs, fornecendo suporte operacional a estudos clínicos. Responsável por gestão de documentação, coordenação com centros de pesquisa, auditoria de sites e garantia de conformidade regulatória.",
+    requirements: [
+      "Graduação em Farmácia, Biomedicina, Saúde ou Biologia",
+      "Conhecimento de GCP (Boas Práticas Clínicas)",
+      "Excelentes habilidades organizacionais",
+      "Atenção aos detalhes e comunicação clara",
+      "Conhecimento básico de legislação regulatória"
+    ],
+    tips: [
+      "Faça certificação em GCP (disponível online)",
+      "Aprenda sobre fases de desenvolvimento clínico",
+      "Estude legislação da ANVISA",
+      "Desenvolva habilidades de gestão documental",
+      "Procure vagas em CROs e farmacêuticas"
+    ]
   },
   {
     id: 6,
@@ -52,7 +127,22 @@ export const jobsData = [
     description: "Elaboração de dossiês, interface com ANVISA, conhecimento regulatório.",
     profile: { D: 40, I: 30, S: 45, C: 85 },
     skills: ["legislacao", "leitura_tecnica", "visao_sistemica", "documental"],
-    keywords: ["legislação", "dossiês", "leitura técnica", "visão sistêmica"]
+    keywords: ["legislação", "dossiês", "leitura técnica", "visão sistêmica"],
+    fullDescription: "O Analista de Assuntos Regulatórios gerencia a interface com órgãos reguladores como ANVISA, elabora dossiês técnicos, interpreta legislação e garante conformidade regulatória. Trabalha na aprovação de estudos clínicos e produtos.",
+    requirements: [
+      "Graduação em Farmácia, Química ou Engenharia Química",
+      "Conhecimento profundo de legislação regulatória",
+      "Capacidade de redação técnica",
+      "Inglês fluente (essencial)",
+      "Familiaridade com regulamentações ICH"
+    ],
+    tips: [
+      "Aprenda inglês técnico/profissional",
+      "Estude legislação da ANVISA e ICH",
+      "Faça cursos especializados em Assuntos Regulatórios",
+      "Desenvolva habilidades de redação técnica",
+      "Busque experiência em Qualidade ou Pesquisa e Desenvolvimento"
+    ]
   },
   {
     id: 7,
@@ -61,7 +151,22 @@ export const jobsData = [
     description: "Análise de eventos adversos, reporte de segurança, documentação.",
     profile: { D: 25, I: 25, S: 55, C: 80 },
     skills: ["analise", "seguranca", "ingles", "atencao_detalhes"],
-    keywords: ["análise de segurança", "eventos adversos", "inglês"]
+    keywords: ["análise de segurança", "eventos adversos", "inglês"],
+    fullDescription: "O Assistente de Farmacovigilância monitora a segurança de medicamentos, analisa eventos adversos, elabora relatórios de segurança e garante conformidade com regulamentações internacionais. Trabalha na proteção da saúde pública.",
+    requirements: [
+      "Graduação em Farmácia ou Saúde",
+      "Inglês intermediário/avançado",
+      "Atenção aos detalhes para análise de dados",
+      "Conhecimento de legislação de farmacovigilância",
+      "Capacidade analítica"
+    ],
+    tips: [
+      "Desenvolva seu inglês, é essencial para a área",
+      "Estude regulações de farmacovigilância (ANVISA, EMA, FDA)",
+      "Aprenda sobre classificação de eventos adversos",
+      "Familiarize-se com sistemas de reporte de segurança",
+      "Procure estágios em departamentos de Qualidade"
+    ]
   },
   {
     id: 8,
@@ -70,7 +175,22 @@ export const jobsData = [
     description: "Gestão de cadeia fria, importação de materiais, controle de prazos.",
     profile: { D: 55, I: 35, S: 45, C: 70 },
     skills: ["resolucao_problemas", "urgencia", "gestao", "prazos"],
-    keywords: ["gestão de cadeia fria", "prazos", "resolução de problemas", "senso de urgência"]
+    keywords: ["gestão de cadeia fria", "prazos", "resolução de problemas", "senso de urgência"],
+    fullDescription: "O Analista de Logística gerencia a cadeia de suprimentos em pesquisa clínica, incluindo armazenamento em temperatura controlada, importação/exportação de medicamentos investigacionais e materiais de pesquisa, garantindo conformidade regulatória.",
+    requirements: [
+      "Graduação em Logística, Administração ou Engenharia",
+      "Conhecimento de cadeia fria e regulamentações de transporte",
+      "Habilidades de resolução de problemas",
+      "Senso de urgência e capacidade sob pressão",
+      "Conhecimento de sistemas ERP"
+    ],
+    tips: [
+      "Estude regulamentações de transporte internacional (IATA, IMDG)",
+      "Aprenda sobre gerenciamento de cadeia de frio",
+      "Desenvolva habilidades de resolução rápida de problemas",
+      "Familiarize-se com legislação de importação/exportação",
+      "Procure experiência em empresas de logística de saúde"
+    ]
   },
   {
     id: 9,
@@ -79,7 +199,22 @@ export const jobsData = [
     description: "Design de banco de dados, validação, programação de CRF eletrônico.",
     profile: { D: 35, I: 20, S: 50, C: 90 },
     skills: ["raciocinio_logico", "banco_dados", "validacao", "tecnico"],
-    keywords: ["design de banco de dados", "validação", "raciocínio lógico"]
+    keywords: ["design de banco de dados", "validação", "raciocínio lógico"],
+    fullDescription: "O Analista de Dados Clínicos em CROs trabalha no design de banco de dados para estudos clínicos, programação de formulários eletrônicos (eCRF), validação de dados e garantia de qualidade. Requer conhecimento técnico avançado.",
+    requirements: [
+      "Graduação em Computação, Estatística ou Engenharia",
+      "Conhecimento de SQL e design de banco de dados",
+      "Famíliaridade com sistemas EDC (Electronic Data Capture)",
+      "Raciocínio lógico forte",
+      "Conhecimento de GCP"
+    ],
+    tips: [
+      "Aprenda SQL profundamente",
+      "Estude design de banco de dados relacional",
+      "Familiarize-se com sistemas EDC populares",
+      "Aprenda programação (Python ou R é um bônus)",
+      "Procure vagas em CROs especializadas"
+    ]
   },
   {
     id: 10,
@@ -88,7 +223,22 @@ export const jobsData = [
     description: "Monitoramento de centros de pesquisa clínica, viagens frequentes, supervisão de qualidade.",
     profile: { D: 65, I: 55, S: 35, C: 65 },
     skills: ["comunicacao", "pressao", "pensamento_critico", "viagens", "autonomia"],
-    keywords: ["supervisão", "viagens", "comunicação assertiva", "pressão", "pensamento crítico"]
+    keywords: ["supervisão", "viagens", "comunicação assertiva", "pressão", "pensamento crítico"],
+    fullDescription: "O Monitor de Pesquisa Clínica (CRA - Clinical Research Associate) supervisiona a execução de estudos clínicos em centros de pesquisa, realiza auditorias, verifica conformidade, coleta dados de origem e comunica-se com investigadores. Exige viagens frequentes.",
+    requirements: [
+      "Graduação em Saúde/Farmácia/Biologia (preferido)",
+      "Experiência em pesquisa clínica (2-3 anos)",
+      "Excelentes habilidades de comunicação",
+      "Disponibilidade para viagens frequentes",
+      "Conhecimento avançado de GCP"
+    ],
+    tips: [
+      "Comece como Assistente ou Analista de Pesquisa Clínica",
+      "Obtenha certificação ACRP (Association of Clinical Research Professionals)",
+      "Desenvolva habilidades de auditoria e pensamento crítico",
+      "Estude GCP em profundidade",
+      "Busque experiência internacional se possível"
+    ]
   },
   {
     id: 11,
@@ -97,7 +247,22 @@ export const jobsData = [
     description: "Redação científica, elaboração de protocolos e relatórios.",
     profile: { D: 30, I: 25, S: 60, C: 85 },
     skills: ["redacao", "ingles", "interpretacao", "isolamento", "tecnico"],
-    keywords: ["redação científica", "inglês", "isolamento produtivo", "interpretação de textos"]
+    keywords: ["redação científica", "inglês", "isolamento produtivo", "interpretação de textos"],
+    fullDescription: "O Medical Writer elabora documentação técnica e científica, incluindo protocolos de estudo, relatórios clínicos, artigos científicos e submissões regulatórias. Requer excelente escrita científica e conhecimento técnico.",
+    requirements: [
+      "Graduação em Farmácia, Medicina ou Biologia",
+      "Excelente domínio de inglês",
+      "Habilidades excepcionais de redação",
+      "Conhecimento de terminologia médica/científica",
+      "Familiaridade com formatting de documentos técnicos"
+    ],
+    tips: [
+      "Desenvolva excelente inglês técnico/científico",
+      "Estude metodologia científica e redação acadêmica",
+      "Leia muitos artigos científicos e relatórios clínicos",
+      "Faça cursos de Medical Writing",
+      "Considere mestrado em área de interesse (opcional)"
+    ]
   }
 ];
 
