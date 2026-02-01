@@ -103,6 +103,15 @@ export default function JobCard({ job, rank, delay = 0, onFeedback, jobIndex }) 
             <span className="text-sm font-semibold text-teal-600">{job.techMatch}%</span>
           </div>
         </div>
+        {job.careerGoalMatch && (
+          <div className="flex items-center gap-2 px-3 py-2 bg-white/80 rounded-lg col-span-2">
+            <TrendingUp className="w-4 h-4 text-purple-500" />
+            <div>
+              <span className="text-xs text-slate-500 block">Alinhamento com seus Objetivos</span>
+              <span className="text-sm font-semibold text-purple-600">{job.careerGoalMatch}%</span>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Keywords */}

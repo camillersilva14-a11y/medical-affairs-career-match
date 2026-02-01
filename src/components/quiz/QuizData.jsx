@@ -463,7 +463,7 @@ export const calculateJobMatch = (
   const results = jobsData
     .filter(job => !excludedJobs.includes(job.title)) // Excluir vagas não desejadas
     .map(job => {
-      // Calcular compatibilidade DISC (peso 50%)
+      // Calcular compatibilidade DISC (peso 40%)
       const discMatch = 100 - (
         Math.abs(job.profile.D - discProfile.D) +
         Math.abs(job.profile.I - discProfile.I) +
@@ -471,7 +471,7 @@ export const calculateJobMatch = (
         Math.abs(job.profile.C - discProfile.C)
       ) / 4;
       
-      // Calcular compatibilidade técnica (peso 30%)
+      // Calcular compatibilidade técnica (peso 25%)
       let skillMatch = 0;
       let skillCount = 0;
       job.skills.forEach(skill => {
@@ -482,7 +482,7 @@ export const calculateJobMatch = (
       });
       const techMatch = skillCount > 0 ? skillMatch / skillCount : 50;
       
-      // Compatibilidade de localização (peso 10%)
+      // Compatibilidade de localização (peso 5%)
       let relocationMatch = 100;
       if (relocationPreference !== 'flexible') {
         if (relocationPreference === 'remote_only' && job.relocation !== 'remote_only') {
@@ -510,27 +510,58 @@ export const calculateJobMatch = (
         }
       }
       
-      // Compatibilidade base
-      let totalMatch = (discMatch * 0.5) + (techMatch * 0.3) + (relocationMatch * 0.1) + (cultureMatch * 0.1);
-      
-      // Ajuste baseado em objetivos de carreira (bonus até 10%)
+      // Análise profunda de objetivos de carreira (peso 20%)
+      let careerGoalMatch = 50; // Base neutra
       if (careerGoals) {
         const goalsLower = careerGoals.toLowerCase();
         const titleLower = job.title.toLowerCase();
         const descLower = job.description.toLowerCase();
         
-        // Palavras-chave relacionadas a objetivos
-        const goalKeywords = ['gestão', 'liderança', 'coordenação', 'monitor', 'dados', 'análise', 
-                             'regulatório', 'farmacovigilância', 'farmacêutico', 'writer'];
+        // Mapear objetivos de carreira para vagas com caminho claro
+        const careerPathways = {
+          'gestão': ['coordenador', 'gestor', 'líder', 'supervisor', 'gerente'],
+          'liderança': ['coordenador', 'gestor', 'líder', 'supervisor'],
+          'dados': ['analista de dados', 'data', 'banco de dados'],
+          'análise': ['analista', 'análise', 'dados'],
+          'monitor': ['monitor', 'cra', 'monitoramento'],
+          'regulatório': ['regulatório', 'regulatória', 'anvisa'],
+          'farmacovigilância': ['farmacovigilância', 'segurança', 'eventos adversos'],
+          'pesquisa': ['pesquisa', 'research', 'clínica'],
+          'farmácia': ['farmacêutico', 'farmácia', 'medicamentos'],
+          'redação': ['writer', 'redação', 'científica'],
+          'crescimento': ['júnior', 'jr', 'assistente', 'analista'],
+          'internacional': ['inglês', 'multinacional', 'global']
+        };
         
-        let goalBonus = 0;
-        goalKeywords.forEach(keyword => {
-          if (goalsLower.includes(keyword) && (titleLower.includes(keyword) || descLower.includes(keyword))) {
-            goalBonus += 2;
+        let goalScore = 0;
+        let matchCount = 0;
+        
+        // Verificar alinhamento com objetivos
+        Object.keys(careerPathways).forEach(goal => {
+          if (goalsLower.includes(goal)) {
+            careerPathways[goal].forEach(keyword => {
+              if (titleLower.includes(keyword) || descLower.includes(keyword)) {
+                goalScore += 20;
+                matchCount++;
+              }
+            });
           }
         });
-        totalMatch += Math.min(10, goalBonus);
+        
+        // Bônus para vagas com caminho de crescimento claro
+        if (goalsLower.includes('crescimento') || goalsLower.includes('desenvolv')) {
+          if (titleLower.includes('júnior') || titleLower.includes('jr') || 
+              titleLower.includes('assistente') || titleLower.includes('analista')) {
+            goalScore += 15; // Vagas de entrada com potencial
+          }
+        }
+        
+        careerGoalMatch = Math.min(100, 50 + goalScore);
       }
+      
+      // Compatibilidade base com novos pesos
+      let totalMatch = (discMatch * 0.40) + (techMatch * 0.25) + (careerGoalMatch * 0.20) + 
+                       (cultureMatch * 0.10) + (relocationMatch * 0.05);
       
       // Ajuste baseado em feedback histórico
       if (feedbackHistory) {
@@ -546,7 +577,8 @@ export const calculateJobMatch = (
         ...job,
         matchPercentage: Math.min(100, Math.max(0, Math.round(totalMatch))),
         discMatch: Math.round(discMatch),
-        techMatch: Math.round(techMatch)
+        techMatch: Math.round(techMatch),
+        careerGoalMatch: Math.round(careerGoalMatch)
       };
     });
   
