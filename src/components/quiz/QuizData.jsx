@@ -425,7 +425,7 @@ export const quizQuestions = [
 ];
 
 // Função para calcular compatibilidade
-export const calculateJobMatch = (discProfile, technicalScores) => {
+export const calculateJobMatch = (discProfile, technicalScores, userFeedbackHistory = null) => {
   const results = jobsData.map(job => {
     // Calcular compatibilidade DISC (peso 60%)
     const discMatch = 100 - (
@@ -446,12 +446,22 @@ export const calculateJobMatch = (discProfile, technicalScores) => {
     });
     const techMatch = skillCount > 0 ? skillMatch / skillCount : 50;
     
-    // Compatibilidade final
-    const totalMatch = Math.round((discMatch * 0.6) + (techMatch * 0.4));
+    // Compatibilidade base
+    let totalMatch = (discMatch * 0.6) + (techMatch * 0.4);
+    
+    // Ajuste baseado em feedback histórico (se houver)
+    if (userFeedbackHistory) {
+      const feedback = userFeedbackHistory[job.title];
+      if (feedback === 'interested') {
+        totalMatch *= 1.15; // Aumenta 15% para jobs que usuário demonstrou interesse
+      } else if (feedback === 'not_interested') {
+        totalMatch *= 0.85; // Reduz 15% para jobs que usuário não demonstrou interesse
+      }
+    }
     
     return {
       ...job,
-      matchPercentage: Math.min(100, Math.max(0, totalMatch)),
+      matchPercentage: Math.min(100, Math.max(0, Math.round(totalMatch))),
       discMatch: Math.round(discMatch),
       techMatch: Math.round(techMatch)
     };
