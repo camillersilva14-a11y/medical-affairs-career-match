@@ -17,6 +17,7 @@ import SEO from '@/components/SEO';
 
 import JobCard from '@/components/results/JobCard';
 import DISCChart from '@/components/results/DISCChart';
+import ToolFeedback from '@/components/results/ToolFeedback';
 
 export default function Results() {
   const [assessment, setAssessment] = useState(null);
@@ -213,6 +214,9 @@ export default function Results() {
             </Button>
           </Link>
         </motion.div>
+
+        {/* Tool Feedback */}
+        <ToolFeedback assessmentId={assessment.id} />
 
         {/* Footer Note */}
         <motion.p
