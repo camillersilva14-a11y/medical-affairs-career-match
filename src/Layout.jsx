@@ -34,7 +34,7 @@ export default function Layout({ children, currentPageName }) {
       <footer className="bg-white border-t border-slate-100 py-8 mt-auto">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-sm text-slate-500">
-            © 2024 Clinical Career Match • Especialista em Recrutamento para Pesquisa Clínica
+            © 2026 Clinical Career Match • Especialista em Recrutamento para Pesquisa Clínica
           </p>
           <p className="text-xs text-slate-400 mt-2">
             Metodologia DISC + Análise de Aptidões Técnicas
