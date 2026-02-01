@@ -122,9 +122,9 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 text-center"
+          className="mt-24 text-center"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-12">
             Como funciona?
           </h2>
           
@@ -137,42 +137,18 @@ export default function Home() {
                 transition={{ delay: 0.9 + index * 0.15 }}
                 className="relative"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-md shadow-teal-200">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">
                   {index + 1}
                 </div>
-                <p className="text-slate-600 leading-relaxed px-4">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {step}
                 </p>
                 {index < 2 && (
-                  <div className="hidden md:block absolute top-6 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-teal-200 to-transparent" />
+                  <div className="hidden md:block absolute top-5 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-teal-200 to-transparent" />
                 )}
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        {/* Final CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-          className="mt-16 text-center bg-gradient-to-r from-teal-50 to-cyan-50 rounded-3xl p-8 md:p-12 border border-teal-100"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">
-            Pronto para descobrir sua carreira ideal?
-          </h3>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-            Faça a avaliação gratuita agora e receba recomendações personalizadas baseadas no seu perfil
-          </p>
-          <Link to={createPageUrl('Quiz')}>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-10 py-6 text-lg rounded-xl shadow-lg shadow-teal-200 hover:shadow-xl transition-all duration-300"
-            >
-              Começar Avaliação
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
         </motion.div>
 
 
