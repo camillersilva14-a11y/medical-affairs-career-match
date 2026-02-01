@@ -20,14 +20,6 @@ export default function Layout({ children, currentPageName }) {
               Clinical Career Match
             </span>
           </Link>
-
-          {currentPageName !== 'Quiz' && currentPageName !== 'Results' && (
-            <Link to={createPageUrl('Quiz')}>
-              <button className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium rounded-lg transition-colors">
-                Iniciar Teste
-              </button>
-            </Link>
-          )}
         </div>
       </header>
 
