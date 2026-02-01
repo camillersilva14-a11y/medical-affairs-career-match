@@ -129,9 +129,14 @@ export default function Results() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <h2 className="text-2xl font-bold text-slate-800 mb-6">
-            Suas Top 5 Vagas Recomendadas
-          </h2>
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-slate-800 mb-2">
+              Suas Top 5 Vagas Recomendadas
+            </h2>
+            <p className="text-slate-600 text-sm">
+              💼 Vagas de entrada para iniciar sua carreira em Pesquisa Clínica
+            </p>
+          </div>
           <div className="grid gap-4">
             {assessment.recommended_jobs?.map((job, index) => (
               <JobCard
