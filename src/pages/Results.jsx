@@ -48,26 +48,13 @@ export default function Results() {
       feedback: feedbackValue
     };
 
-    // Se marcou como "não tenho interesse", adicionar à lista de exclusão
-    let updatedExcludedJobs = [...(assessment.excluded_jobs || [])];
-    const jobTitle = updatedJobs[jobIndex].job_title;
-    
-    if (feedbackValue === 'not_interested' && !updatedExcludedJobs.includes(jobTitle)) {
-      updatedExcludedJobs.push(jobTitle);
-    } else if (feedbackValue === 'interested') {
-      // Remover da lista de exclusão se estava lá
-      updatedExcludedJobs = updatedExcludedJobs.filter(title => title !== jobTitle);
-    }
-
     await base44.entities.Assessment.update(assessment.id, {
-      recommended_jobs: updatedJobs,
-      excluded_jobs: updatedExcludedJobs
+      recommended_jobs: updatedJobs
     });
 
     setAssessment({
       ...assessment,
-      recommended_jobs: updatedJobs,
-      excluded_jobs: updatedExcludedJobs
+      recommended_jobs: updatedJobs
     });
   };
 
@@ -177,10 +164,10 @@ export default function Results() {
         >
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-slate-800 mb-2">
-              Suas Vagas Recomendadas
+              Suas Top 5 Vagas Recomendadas
             </h2>
             <p className="text-slate-600 text-sm">
-              💼 Combinando análise de perfil com vagas reais do mercado
+              💼 Vagas de entrada para iniciar sua carreira em Pesquisa Clínica
             </p>
           </div>
           <div className="grid gap-4">
@@ -189,17 +176,12 @@ export default function Results() {
                 key={index}
                 job={{
                   title: job.job_title,
-                  company: job.company,
                   salary: job.salary_range,
                   description: job.description,
                   matchPercentage: job.match_percentage,
                   discMatch: job.disc_match,
                   techMatch: job.tech_match,
                   keywords: job.keywords || [],
-                  location: job.location,
-                  workType: job.work_type,
-                  jobUrl: job.job_url,
-                  isRealJob: job.is_real_job,
                   feedback: job.feedback || 'none'
                 }}
                 rank={index + 1}

@@ -7,9 +7,7 @@ export const jobsData = [
     description: "Suporte operacional em centros de pesquisa clínica, preenchimento de CRF, contato com participantes.",
     profile: { D: 20, I: 40, S: 70, C: 60 },
     skills: ["organizacao", "empatia", "suporte", "atencao_detalhes"],
-    keywords: ["organização", "suporte", "preenchimento de CRF", "empatia"],
-    relocation: "no_relocation",
-    culture: "research"
+    keywords: ["organização", "suporte", "preenchimento de CRF", "empatia"]
   },
   {
     id: 2,
@@ -18,9 +16,7 @@ export const jobsData = [
     description: "Gestão e integridade de dados clínicos, análise e validação.",
     profile: { D: 30, I: 20, S: 50, C: 90 },
     skills: ["atencao_detalhes", "foco", "raciocinio_logico", "integridade"],
-    keywords: ["atenção aos detalhes", "foco", "integridade de dados"],
-    relocation: "flexible",
-    culture: "corporate"
+    keywords: ["atenção aos detalhes", "foco", "integridade de dados"]
   },
   {
     id: 3,
@@ -29,9 +25,7 @@ export const jobsData = [
     description: "Gestão de estudos clínicos, liderança de equipe, interface com patrocinadores.",
     profile: { D: 70, I: 60, S: 40, C: 50 },
     skills: ["lideranca", "visao_sistemica", "comunicacao", "resiliencia", "gestao"],
-    keywords: ["gestão", "visão sistêmica", "comunicação", "resiliência"],
-    relocation: "flexible",
-    culture: "corporate"
+    keywords: ["gestão", "visão sistêmica", "comunicação", "resiliência"]
   },
   {
     id: 4,
@@ -40,9 +34,7 @@ export const jobsData = [
     description: "Controle de medicamentos investigacionais, dispensação, compliance.",
     profile: { D: 30, I: 30, S: 60, C: 85 },
     skills: ["compliance", "atencao_detalhes", "controle", "tecnico"],
-    keywords: ["controle de estoque", "compliance", "dispensação", "atenção técnica"],
-    relocation: "no_relocation",
-    culture: "research"
+    keywords: ["controle de estoque", "compliance", "dispensação", "atenção técnica"]
   },
   {
     id: 5,
@@ -51,9 +43,7 @@ export const jobsData = [
     description: "Suporte operacional na indústria, gestão documental, conhecimento em GCP.",
     profile: { D: 35, I: 35, S: 55, C: 75 },
     skills: ["organizacao", "gcp", "documental", "suporte"],
-    keywords: ["suporte operacional", "GCP", "organização documental"],
-    relocation: "flexible",
-    culture: "corporate"
+    keywords: ["suporte operacional", "GCP", "organização documental"]
   },
   {
     id: 6,
@@ -62,9 +52,7 @@ export const jobsData = [
     description: "Elaboração de dossiês, interface com ANVISA, conhecimento regulatório.",
     profile: { D: 40, I: 30, S: 45, C: 85 },
     skills: ["legislacao", "leitura_tecnica", "visao_sistemica", "documental"],
-    keywords: ["legislação", "dossiês", "leitura técnica", "visão sistêmica"],
-    relocation: "flexible",
-    culture: "corporate"
+    keywords: ["legislação", "dossiês", "leitura técnica", "visão sistêmica"]
   },
   {
     id: 7,
@@ -73,9 +61,7 @@ export const jobsData = [
     description: "Análise de eventos adversos, reporte de segurança, documentação.",
     profile: { D: 25, I: 25, S: 55, C: 80 },
     skills: ["analise", "seguranca", "ingles", "atencao_detalhes"],
-    keywords: ["análise de segurança", "eventos adversos", "inglês"],
-    relocation: "flexible",
-    culture: "corporate"
+    keywords: ["análise de segurança", "eventos adversos", "inglês"]
   },
   {
     id: 8,
@@ -84,9 +70,7 @@ export const jobsData = [
     description: "Gestão de cadeia fria, importação de materiais, controle de prazos.",
     profile: { D: 55, I: 35, S: 45, C: 70 },
     skills: ["resolucao_problemas", "urgencia", "gestao", "prazos"],
-    keywords: ["gestão de cadeia fria", "prazos", "resolução de problemas", "senso de urgência"],
-    relocation: "flexible",
-    culture: "corporate"
+    keywords: ["gestão de cadeia fria", "prazos", "resolução de problemas", "senso de urgência"]
   },
   {
     id: 9,
@@ -95,9 +79,7 @@ export const jobsData = [
     description: "Design de banco de dados, validação, programação de CRF eletrônico.",
     profile: { D: 35, I: 20, S: 50, C: 90 },
     skills: ["raciocinio_logico", "banco_dados", "validacao", "tecnico"],
-    keywords: ["design de banco de dados", "validação", "raciocínio lógico"],
-    relocation: "flexible",
-    culture: "startup"
+    keywords: ["design de banco de dados", "validação", "raciocínio lógico"]
   },
   {
     id: 10,
@@ -106,9 +88,7 @@ export const jobsData = [
     description: "Monitoramento de centros de pesquisa clínica, viagens frequentes, supervisão de qualidade.",
     profile: { D: 65, I: 55, S: 35, C: 65 },
     skills: ["comunicacao", "pressao", "pensamento_critico", "viagens", "autonomia"],
-    keywords: ["supervisão", "viagens", "comunicação assertiva", "pressão", "pensamento crítico"],
-    relocation: "open_to_relocation",
-    culture: "flexible"
+    keywords: ["supervisão", "viagens", "comunicação assertiva", "pressão", "pensamento crítico"]
   },
   {
     id: 11,
@@ -117,9 +97,7 @@ export const jobsData = [
     description: "Redação científica, elaboração de protocolos e relatórios.",
     profile: { D: 30, I: 25, S: 60, C: 85 },
     skills: ["redacao", "ingles", "interpretacao", "isolamento", "tecnico"],
-    keywords: ["redação científica", "inglês", "isolamento produtivo", "interpretação de textos"],
-    relocation: "remote_only",
-    culture: "flexible"
+    keywords: ["redação científica", "inglês", "isolamento produtivo", "interpretação de textos"]
   }
 ];
 
@@ -446,109 +424,48 @@ export const quizQuestions = [
   }
 ];
 
-// Função para calcular compatibilidade com fatores adicionais
-export const calculateJobMatch = (
-  discProfile, 
-  technicalScores, 
-  userPreferences = {}, 
-  excludedJobs = []
-) => {
-  const { 
-    careerGoals = '', 
-    relocationPreference = 'flexible', 
-    companyCulture = 'flexible',
-    feedbackHistory = null 
-  } = userPreferences;
-
-  const results = jobsData
-    .filter(job => !excludedJobs.includes(job.title)) // Excluir vagas não desejadas
-    .map(job => {
-      // Calcular compatibilidade DISC (peso 50%)
-      const discMatch = 100 - (
-        Math.abs(job.profile.D - discProfile.D) +
-        Math.abs(job.profile.I - discProfile.I) +
-        Math.abs(job.profile.S - discProfile.S) +
-        Math.abs(job.profile.C - discProfile.C)
-      ) / 4;
-      
-      // Calcular compatibilidade técnica (peso 30%)
-      let skillMatch = 0;
-      let skillCount = 0;
-      job.skills.forEach(skill => {
-        if (technicalScores[skill]) {
-          skillMatch += (technicalScores[skill] / 4) * 100;
-          skillCount++;
-        }
-      });
-      const techMatch = skillCount > 0 ? skillMatch / skillCount : 50;
-      
-      // Compatibilidade de localização (peso 10%)
-      let relocationMatch = 100;
-      if (relocationPreference !== 'flexible') {
-        if (relocationPreference === 'remote_only' && job.relocation !== 'remote_only') {
-          relocationMatch = 50;
-        } else if (relocationPreference === 'no_relocation' && job.relocation === 'open_to_relocation') {
-          relocationMatch = 60;
-        } else if (relocationPreference === job.relocation) {
-          relocationMatch = 100;
-        } else if (job.relocation === 'flexible') {
-          relocationMatch = 90;
-        } else {
-          relocationMatch = 70;
-        }
+// Função para calcular compatibilidade
+export const calculateJobMatch = (discProfile, technicalScores, userFeedbackHistory = null) => {
+  const results = jobsData.map(job => {
+    // Calcular compatibilidade DISC (peso 60%)
+    const discMatch = 100 - (
+      Math.abs(job.profile.D - discProfile.D) +
+      Math.abs(job.profile.I - discProfile.I) +
+      Math.abs(job.profile.S - discProfile.S) +
+      Math.abs(job.profile.C - discProfile.C)
+    ) / 4;
+    
+    // Calcular compatibilidade técnica (peso 40%)
+    let skillMatch = 0;
+    let skillCount = 0;
+    job.skills.forEach(skill => {
+      if (technicalScores[skill]) {
+        skillMatch += (technicalScores[skill] / 4) * 100;
+        skillCount++;
       }
-      
-      // Compatibilidade de cultura (peso 10%)
-      let cultureMatch = 100;
-      if (companyCulture !== 'flexible') {
-        if (companyCulture === job.culture) {
-          cultureMatch = 100;
-        } else if (job.culture === 'flexible') {
-          cultureMatch = 90;
-        } else {
-          cultureMatch = 70;
-        }
-      }
-      
-      // Compatibilidade base
-      let totalMatch = (discMatch * 0.5) + (techMatch * 0.3) + (relocationMatch * 0.1) + (cultureMatch * 0.1);
-      
-      // Ajuste baseado em objetivos de carreira (bonus até 10%)
-      if (careerGoals) {
-        const goalsLower = careerGoals.toLowerCase();
-        const titleLower = job.title.toLowerCase();
-        const descLower = job.description.toLowerCase();
-        
-        // Palavras-chave relacionadas a objetivos
-        const goalKeywords = ['gestão', 'liderança', 'coordenação', 'monitor', 'dados', 'análise', 
-                             'regulatório', 'farmacovigilância', 'farmacêutico', 'writer'];
-        
-        let goalBonus = 0;
-        goalKeywords.forEach(keyword => {
-          if (goalsLower.includes(keyword) && (titleLower.includes(keyword) || descLower.includes(keyword))) {
-            goalBonus += 2;
-          }
-        });
-        totalMatch += Math.min(10, goalBonus);
-      }
-      
-      // Ajuste baseado em feedback histórico
-      if (feedbackHistory) {
-        const feedback = feedbackHistory[job.title];
-        if (feedback === 'interested') {
-          totalMatch *= 1.15;
-        } else if (feedback === 'not_interested') {
-          totalMatch *= 0.85;
-        }
-      }
-      
-      return {
-        ...job,
-        matchPercentage: Math.min(100, Math.max(0, Math.round(totalMatch))),
-        discMatch: Math.round(discMatch),
-        techMatch: Math.round(techMatch)
-      };
     });
+    const techMatch = skillCount > 0 ? skillMatch / skillCount : 50;
+    
+    // Compatibilidade base
+    let totalMatch = (discMatch * 0.6) + (techMatch * 0.4);
+    
+    // Ajuste baseado em feedback histórico (se houver)
+    if (userFeedbackHistory) {
+      const feedback = userFeedbackHistory[job.title];
+      if (feedback === 'interested') {
+        totalMatch *= 1.15; // Aumenta 15% para jobs que usuário demonstrou interesse
+      } else if (feedback === 'not_interested') {
+        totalMatch *= 0.85; // Reduz 15% para jobs que usuário não demonstrou interesse
+      }
+    }
+    
+    return {
+      ...job,
+      matchPercentage: Math.min(100, Math.max(0, Math.round(totalMatch))),
+      discMatch: Math.round(discMatch),
+      techMatch: Math.round(techMatch)
+    };
+  });
   
   return results.sort((a, b) => b.matchPercentage - a.matchPercentage);
 };
