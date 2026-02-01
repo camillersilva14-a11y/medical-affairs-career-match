@@ -201,6 +201,7 @@ export default function Quiz() {
           </p>
         </motion.div>
       </div>
+      </>
     );
   }
 

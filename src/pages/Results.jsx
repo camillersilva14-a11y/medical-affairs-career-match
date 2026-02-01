@@ -13,6 +13,7 @@ import {
   Loader2
 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
+import SEO from '@/components/SEO';
 
 import JobCard from '@/components/results/JobCard';
 import DISCChart from '@/components/results/DISCChart';
@@ -66,7 +67,14 @@ export default function Results() {
   const topJob = assessment.recommended_jobs?.[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 py-8 px-4">
+    <>
+      <SEO 
+        title={`Resultados da Avaliação - Clinical Career Match`}
+        description={`Veja seu perfil DISC completo e as vagas ideais na Pesquisa Clínica com base na sua avaliação comportamental e técnica.`}
+        keywords="resultados teste DISC, perfil comportamental, vagas pesquisa clínica, match de carreira"
+        type="article"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/30 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
