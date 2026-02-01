@@ -294,27 +294,6 @@ export default function Quiz() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="culture" className="text-slate-700 flex items-center gap-2">
-                  <Building2 className="w-4 h-4" />
-                  Cultura empresarial preferida
-                </Label>
-                <Select 
-                  value={userInfo.companyCulture} 
-                  onValueChange={(value) => setUserInfo({ ...userInfo, companyCulture: value })}
-                >
-                  <SelectTrigger className="h-12 rounded-xl border-slate-200">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="flexible">Flexível</SelectItem>
-                    <SelectItem value="startup">Startup/Inovação</SelectItem>
-                    <SelectItem value="corporate">Corporativa/Estruturada</SelectItem>
-                    <SelectItem value="research">Pesquisa/Acadêmica</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
               <Button
                 onClick={handleStartQuiz}
                 disabled={!userInfo.name.trim()}
