@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, DollarSign, Target, Users } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { TrendingUp, DollarSign, Target, Users, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
-export default function JobCard({ job, rank, delay = 0 }) {
+export default function JobCard({ job, rank, delay = 0, onFeedback, jobIndex }) {
+  const [feedback, setFeedback] = useState(job.feedback || 'none');
   const getRankStyle = (rank) => {
     switch(rank) {
       case 1:
@@ -87,7 +89,7 @@ export default function JobCard({ job, rank, delay = 0 }) {
       </div>
 
       {/* Keywords */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mb-4">
         {job.keywords.map((keyword, index) => (
           <Badge 
             key={index} 
@@ -97,6 +99,43 @@ export default function JobCard({ job, rank, delay = 0 }) {
             {keyword}
           </Badge>
         ))}
+      </div>
+
+      {/* Feedback Buttons */}
+      <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+        <span className="text-xs text-slate-500 font-medium">Esta vaga te interessa?</span>
+        <div className="flex gap-2">
+          <Button
+            size="sm"
+            variant={feedback === 'interested' ? 'default' : 'outline'}
+            onClick={() => {
+              setFeedback('interested');
+              onFeedback?.(jobIndex, 'interested');
+            }}
+            className={cn(
+              "gap-1.5 h-8",
+              feedback === 'interested' && "bg-emerald-600 hover:bg-emerald-700 text-white"
+            )}
+          >
+            <ThumbsUp className="w-3.5 h-3.5" />
+            Sim
+          </Button>
+          <Button
+            size="sm"
+            variant={feedback === 'not_interested' ? 'default' : 'outline'}
+            onClick={() => {
+              setFeedback('not_interested');
+              onFeedback?.(jobIndex, 'not_interested');
+            }}
+            className={cn(
+              "gap-1.5 h-8",
+              feedback === 'not_interested' && "bg-slate-600 hover:bg-slate-700 text-white"
+            )}
+          >
+            <ThumbsDown className="w-3.5 h-3.5" />
+            Não
+          </Button>
+        </div>
       </div>
     </motion.div>
   );

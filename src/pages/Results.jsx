@@ -39,6 +39,25 @@ export default function Results() {
     setIsLoading(false);
   };
 
+  const handleFeedback = async (jobIndex, feedbackValue) => {
+    if (!assessment) return;
+
+    const updatedJobs = [...assessment.recommended_jobs];
+    updatedJobs[jobIndex] = {
+      ...updatedJobs[jobIndex],
+      feedback: feedbackValue
+    };
+
+    await base44.entities.Assessment.update(assessment.id, {
+      recommended_jobs: updatedJobs
+    });
+
+    setAssessment({
+      ...assessment,
+      recommended_jobs: updatedJobs
+    });
+  };
+
   if (isLoading) {
     return (
       <>
@@ -162,10 +181,13 @@ export default function Results() {
                   matchPercentage: job.match_percentage,
                   discMatch: job.disc_match,
                   techMatch: job.tech_match,
-                  keywords: job.keywords || []
+                  keywords: job.keywords || [],
+                  feedback: job.feedback || 'none'
                 }}
                 rank={index + 1}
                 delay={0.1 * index}
+                jobIndex={index}
+                onFeedback={handleFeedback}
               />
             ))}
           </div>
