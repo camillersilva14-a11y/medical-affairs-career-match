@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import SEO from '@/components/SEO';
+import { trackPageview } from '@/lib/tracker';
 
 import JobCard from '@/components/results/JobCard';
 import DISCChart from '@/components/results/DISCChart';
@@ -25,6 +26,7 @@ export default function Results() {
 
   useEffect(() => {
     loadAssessment();
+    trackPageview("Results");
   }, []);
 
   const loadAssessment = async () => {

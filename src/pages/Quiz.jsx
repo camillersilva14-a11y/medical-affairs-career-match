@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowLeft, ArrowRight, Loader2, User, Mail, Briefcase } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import SEO from '@/components/SEO';
+import { trackPageview, trackLead } from '@/lib/tracker';
 
 import ProgressBar from '@/components/quiz/ProgressBar';
 import QuestionCard from '@/components/quiz/QuestionCard';
@@ -22,8 +23,13 @@ export default function Quiz() {
   const [userInfo, setUserInfo] = useState({ name: '', email: '', currentArea: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    trackPageview("Quiz");
+  }, []);
+
   const handleStartQuiz = () => {
     if (userInfo.name.trim()) {
+      trackLead(userInfo.name, userInfo.email || null);
       setStep('quiz');
     }
   };

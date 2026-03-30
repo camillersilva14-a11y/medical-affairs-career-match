@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { motion } from 'framer-motion';
@@ -14,9 +14,15 @@ import {
   TrendingUp
 } from 'lucide-react';
 import SEO from '@/components/SEO';
+import { trackPageview, trackSession, trackCTA } from '@/lib/tracker';
 
 export default function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    trackSession();
+    trackPageview("Home");
+  }, []);
 
   const features = [
     {
@@ -74,7 +80,7 @@ export default function Home() {
           {/* CTA Button */}
           <Button 
             size="lg" 
-            onClick={() => navigate(createPageUrl('Quiz'))}
+            onClick={() => { trackCTA("iniciar_avaliacao", "hero"); navigate(createPageUrl('Quiz')); }}
             className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-teal-200 hover:shadow-xl transition-all duration-300"
           >
             Iniciar Avaliação Gratuita
