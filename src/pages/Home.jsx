@@ -14,6 +14,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import SEO from '@/components/SEO';
+import FeedbackStats from '@/components/home/FeedbackStats';
 import { trackPageview, trackSession, trackCTA } from '@/lib/tracker';
 
 export default function Home() {
@@ -154,6 +155,9 @@ export default function Home() {
           </div>
         </motion.div>
 
+
+        {/* Feedback Stats */}
+        <FeedbackStats />
 
       </div>
     </div>
