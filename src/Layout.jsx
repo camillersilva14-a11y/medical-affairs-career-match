@@ -21,7 +21,7 @@ export default function Layout({ children, currentPageName }) {
 
 
             <span className="font-semibold text-lg hidden sm:block">
-              Clinical Career Match
+              Medical Affairs Career Match
             </span>
           </Link>
         </div>
