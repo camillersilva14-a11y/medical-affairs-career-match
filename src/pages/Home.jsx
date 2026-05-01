@@ -44,7 +44,7 @@ export default function Home() {
   ];
 
   const steps = [
-    "Responda 20 perguntas sobre seu comportamento e habilidades",
+    "Responda 30 perguntas sobre seu comportamento e habilidades",
     "Nosso algoritmo analisa seu perfil DISC e aptidões técnicas",
     "Receba recomendações personalizadas das melhores vagas para você"
   ];
