@@ -89,6 +89,60 @@ export const jobsData = [
     profile: { D: 30, I: 25, S: 60, C: 85 },
     skills: ["redacao", "ingles", "interpretacao", "isolamento", "tecnico"],
     keywords: ["redação científica", "inglês", "isolamento produtivo", "interpretação de textos"]
+  },
+  {
+    id: 12,
+    title: "Medical Science Liaison (MSL)",
+    salary: "R$ 8.000 - R$ 18.000",
+    description: "O embaixador científico da empresa no campo. Atua na ponte entre a indústria e os KOLs (Principais Formadores de Opinião). Focado em discussões científicas de alto nível, suporte a estudos clínicos e educação médica externa sem viés comercial direto.",
+    profile: { D: 70, I: 80, S: 20, C: 30 },
+    skills: ["comunicacao", "ingles", "interpretacao", "viagens", "redacao"],
+    keywords: ["KOLs", "embaixador científico", "educação médica", "estudos clínicos", "MBE", "oratória", "inglês científico"]
+  },
+  {
+    id: 13,
+    title: "Gerente Médico (Medical Manager)",
+    salary: "R$ 12.000 - R$ 25.000",
+    description: "O pilar estratégico interno que alinha a ciência ao plano de negócios da unidade de terapia. Responsável pela estratégia médica de um produto ou área terapêutica, aprovando materiais, treinando a força de vendas e desenhando o plano de Medical Affairs.",
+    profile: { D: 80, I: 40, S: 30, C: 70 },
+    skills: ["lideranca", "gestao", "visao_sistemica", "raciocinio_logico", "comunicacao"],
+    keywords: ["estratégia médica", "Medical Affairs", "liderança", "aprovação de materiais", "gestão de projetos", "jornada do paciente"]
+  },
+  {
+    id: 14,
+    title: "Informações Médicas (Medical Information)",
+    salary: "R$ 5.000 - R$ 10.000",
+    description: "O centro de inteligência e suporte técnico para stakeholders internos e externos. Elabora respostas científicas padrão e personalizadas para dúvidas de profissionais de saúde e pacientes, além de revisar a acurácia científica de materiais promocionais.",
+    profile: { D: 20, I: 30, S: 70, C: 80 },
+    skills: ["redacao", "atencao_detalhes", "interpretacao", "foco", "isolamento"],
+    keywords: ["respostas científicas", "PubMed", "Embase", "revisão de textos", "regulamentação de propaganda", "compliance"]
+  },
+  {
+    id: 15,
+    title: "Farmacovigilância (PV)",
+    salary: "R$ 6.000 - R$ 18.000",
+    description: "A área guardiã da segurança do paciente e da manutenção do balanço benefício-risco. Monitora, detecta e avalia efeitos adversos de medicamentos. Garante que a empresa cumpra as exigências legais de notificação aos órgãos reguladores.",
+    profile: { D: 20, I: 15, S: 50, C: 90 },
+    skills: ["atencao_detalhes", "foco", "legislacao", "raciocinio_logico", "ingles"],
+    keywords: ["segurança do paciente", "eventos adversos", "MedDRA", "legislação sanitária", "gestão de risco", "banco de dados de segurança"]
+  },
+  {
+    id: 16,
+    title: "Farmacoeconomia e HEOR",
+    salary: "R$ 15.000 - R$ 25.000",
+    description: "Responsável por provar o valor econômico do medicamento para sistemas de saúde. Desenvolve modelos de custo-efetividade e impacto orçamentário para garantir o acesso e o reembolso do produto em convênios ou no sistema público (SUS).",
+    profile: { D: 65, I: 20, S: 30, C: 85 },
+    skills: ["raciocinio_logico", "banco_dados", "interpretacao", "foco", "visao_sistemica"],
+    keywords: ["custo-efetividade", "QALY", "epidemiologia", "SUS", "CMED", "modelagem matemática", "farmacoeconomia", "impacto orçamentário"]
+  },
+  {
+    id: 17,
+    title: "Assuntos Regulatórios (Regulatory Affairs)",
+    salary: "R$ 8.000 - R$ 20.000",
+    description: "O elo vital entre a empresa e as autoridades sanitárias (como a ANVISA). Gerencia o registro de produtos, renovações e alterações pós-registro. Garante que todos os processos estejam em conformidade com as leis vigentes.",
+    profile: { D: 25, I: 25, S: 65, C: 85 },
+    skills: ["legislacao", "atencao_detalhes", "documental", "foco", "redacao"],
+    keywords: ["ANVISA", "registro de produtos", "RDCs", "dossiês técnicos", "submissão eletrônica", "jurídico-sanitário", "conformidade regulatória"]
   }
 ];
 
@@ -411,6 +465,66 @@ export const quizQuestions = [
       { text: "Majoritariamente em equipe, com momentos individuais", score: { isolamento: 2, empatia: 3 } },
       { text: "Equilíbrio entre trabalho individual e em grupo", score: { isolamento: 3, empatia: 2 } },
       { text: "Prefiro trabalho individual, me concentro melhor sozinho(a)", score: { isolamento: 4, foco: 4 } }
+    ]
+  },
+  {
+    id: 27,
+    category: "technical",
+    skill: "legislacao",
+    text: "Qual sua relação com leis, normas e documentos regulatórios?",
+    options: [
+      { text: "Evito ao máximo, acho muito complexo e burocrático", score: { legislacao: 1, documental: 1 } },
+      { text: "Consigo entender o básico quando necessário", score: { legislacao: 2, documental: 2 } },
+      { text: "Tenho facilidade com normas e gosto de garantir conformidade", score: { legislacao: 3, documental: 3 } },
+      { text: "Adoro! Domino legislação e vejo valor estratégico nas regras", score: { legislacao: 4, documental: 4 } }
+    ]
+  },
+  {
+    id: 28,
+    category: "technical",
+    skill: "apresentacao",
+    text: "Como você se sente ao fazer apresentações científicas para especialistas?",
+    options: [
+      { text: "Me sinto muito desconfortável, prefiro evitar", score: { comunicacao: 1, oratoria: 1 } },
+      { text: "Consigo fazer quando necessário, mas não é meu ponto forte", score: { comunicacao: 2, oratoria: 2 } },
+      { text: "Tenho boa desenvoltura e me preparo bem para isso", score: { comunicacao: 3, oratoria: 3 } },
+      { text: "Excelente! Adoro apresentar e engajar especialistas em debates", score: { comunicacao: 4, oratoria: 4 } }
+    ]
+  },
+  {
+    id: 29,
+    category: "technical",
+    skill: "analise_dados_complexos",
+    text: "Ao analisar um artigo científico com dados estatísticos complexos, você:",
+    options: [
+      { text: "Tenho muita dificuldade em interpretar os resultados", score: { interpretacao: 1, raciocinio_logico: 1 } },
+      { text: "Entendo as conclusões gerais, mas não os métodos em detalhe", score: { interpretacao: 2, raciocinio_logico: 2 } },
+      { text: "Consigo interpretar a maioria dos dados e metodologias", score: { interpretacao: 3, raciocinio_logico: 3 } },
+      { text: "Analiso criticamente metodologia, resultados e limitações com facilidade", score: { interpretacao: 4, raciocinio_logico: 4 } }
+    ]
+  },
+  {
+    id: 30,
+    category: "technical",
+    skill: "relacoes_externas",
+    text: "Como você se sente ao construir relacionamentos com médicos e líderes de opinião?",
+    options: [
+      { text: "Prefiro evitar, me sinto intimidado(a) por especialistas", score: { empatia: 1, comunicacao: 1 } },
+      { text: "Consigo interagir, mas prefiro contatos mais pontuais", score: { empatia: 2, comunicacao: 2 } },
+      { text: "Gosto de criar vínculos profissionais e me relaciono bem", score: { empatia: 3, comunicacao: 3 } },
+      { text: "Adoro! Networking com especialistas é onde mais me destaco", score: { empatia: 4, comunicacao: 4, oratoria: 3 } }
+    ]
+  },
+  {
+    id: 31,
+    category: "technical",
+    skill: "visao_estrategica",
+    text: "Ao trabalhar com um produto ou projeto, você naturalmente:",
+    options: [
+      { text: "Foco nas tarefas do dia a dia sem pensar muito no longo prazo", score: { visao_sistemica: 1, gestao: 1 } },
+      { text: "Cumpro minhas responsabilidades mas observo o contexto maior", score: { visao_sistemica: 2, gestao: 2 } },
+      { text: "Gosto de entender o impacto das ações no resultado final", score: { visao_sistemica: 3, gestao: 3 } },
+      { text: "Penso sempre estrategicamente, conectando ações ao impacto de negócio", score: { visao_sistemica: 4, gestao: 4, lideranca: 3 } }
     ]
   }
 ];
