@@ -66,7 +66,7 @@ export default function Home() {
         >
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-            Descubra as áreas de entrada que mais combinam com você na{' '}
+            Descubra as áreas de entrada que mais combinam com você na área de{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
               Medical Affairs
             </span>
