@@ -48,6 +48,25 @@ export function trackCTA(eventName, section, source) {
   });
 }
 
+export function trackQuizStart(userName, source) {
+  sendEvent({
+    event_type: "quiz",
+    event_name: "quiz_start",
+    user_name: userName,
+    source: source || getSource(),
+  });
+}
+
+export function trackQuizComplete(userName, topJob, matchPercentage, source) {
+  sendEvent({
+    event_type: "quiz",
+    event_name: "quiz_complete",
+    user_name: userName,
+    source: source || getSource(),
+    metadata: JSON.stringify({ top_job: topJob, match_percentage: matchPercentage }),
+  });
+}
+
 export function trackLead(userName, userEmail, source) {
   sendEvent({
     event_type: "lead",

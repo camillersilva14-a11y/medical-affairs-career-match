@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowLeft, ArrowRight, Loader2, User, Mail, Briefcase } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import SEO from '@/components/SEO';
-import { trackPageview, trackLead } from '@/lib/tracker';
+import { trackPageview, trackLead, trackQuizStart, trackQuizComplete } from '@/lib/tracker';
 
 import ProgressBar from '@/components/quiz/ProgressBar';
 import QuestionCard from '@/components/quiz/QuestionCard';
@@ -30,6 +30,7 @@ export default function Quiz() {
   const handleStartQuiz = () => {
     if (userInfo.name.trim()) {
       trackLead(userInfo.name, userInfo.email || null);
+      trackQuizStart(userInfo.name);
       setStep('quiz');
     }
   };
@@ -129,6 +130,13 @@ export default function Quiz() {
       recommended_jobs: recommendedJobs,
       status: 'completed'
     });
+
+    // Track completion
+    trackQuizComplete(
+      userInfo.name,
+      recommendedJobs[0]?.job_title,
+      recommendedJobs[0]?.match_percentage
+    );
 
     // Navigate to results
     setTimeout(() => {
