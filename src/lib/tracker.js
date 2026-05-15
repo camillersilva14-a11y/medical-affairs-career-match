@@ -15,6 +15,7 @@ async function sendEvent(payload) {
       body: JSON.stringify({
         app_name: APP_NAME,
         received_at: new Date().toISOString(),
+        visitor_origin: getVisitorOrigin(),
         ...payload,
       }),
     });
@@ -111,4 +112,17 @@ function getSource() {
   if (ref.includes("google")) return "Google";
   if (ref.includes("base44")) return "Base44";
   return "Direto";
+}
+
+function getVisitorOrigin() {
+  if (typeof window === "undefined") return {};
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get("utm_source") || null,
+    utm_medium: params.get("utm_medium") || null,
+    utm_campaign: params.get("utm_campaign") || null,
+    utm_content: params.get("utm_content") || null,
+    referrer: document.referrer || null,
+    landing_page: window.location.pathname + window.location.search,
+  };
 }
