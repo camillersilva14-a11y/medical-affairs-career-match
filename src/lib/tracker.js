@@ -57,6 +57,15 @@ export function trackQuizStart(userName, source) {
   });
 }
 
+export function trackError(errorMessage, context, source) {
+  sendEvent({
+    event_type: "error",
+    event_name: "assessment_error",
+    source: source || getSource(),
+    metadata: JSON.stringify({ error: errorMessage, context }),
+  });
+}
+
 export function trackDISCResult(userName, discProfile, dominantDimension, source) {
   sendEvent({
     event_type: "assessment",

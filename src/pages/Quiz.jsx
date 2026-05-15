@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowLeft, ArrowRight, Loader2, User, Mail, Briefcase } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import SEO from '@/components/SEO';
-import { trackPageview, trackLead, trackQuizStart, trackQuizComplete, trackDISCResult } from '@/lib/tracker';
+import { trackPageview, trackLead, trackQuizStart, trackQuizComplete, trackDISCResult, trackError } from '@/lib/tracker';
 
 import ProgressBar from '@/components/quiz/ProgressBar';
 import QuestionCard from '@/components/quiz/QuestionCard';
@@ -72,6 +72,7 @@ export default function Quiz() {
   const processResults = async (finalAnswers) => {
     setStep('processing');
     setIsSubmitting(true);
+    try {
 
     // Calculate DISC Profile
     const discScores = { D: 0, I: 0, S: 0, C: 0 };
@@ -146,6 +147,12 @@ export default function Quiz() {
     setTimeout(() => {
       navigate(createPageUrl(`Results?id=${assessment.id}`));
     }, 2000);
+    } catch (error) {
+      trackError(error.message, 'processResults');
+      setStep('quiz');
+      setIsSubmitting(false);
+      throw error;
+    }
   };
 
   if (step === 'intro') {
