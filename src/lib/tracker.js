@@ -118,15 +118,47 @@ export function trackLead(userName, userEmail, source) {
 function getSource() {
   if (typeof window === "undefined") return "Direto";
   const params = new URLSearchParams(window.location.search);
-  const utm = params.get("utm_source");
-  if (utm) return utm.charAt(0).toUpperCase() + utm.slice(1);
+
+  const utmSource = params.get("utm_source");
+  const utmMedium = params.get("utm_medium");
+
+  if (utmSource) {
+    const s = utmSource.toLowerCase();
+    if (s.includes("instagram")) return "Instagram";
+    if (s.includes("linkedin")) return "LinkedIn";
+    if (s.includes("facebook") || s.includes("fb")) return "Facebook";
+    if (s.includes("whatsapp") || s.includes("wpp")) return "WhatsApp";
+    if (s.includes("youtube") || s.includes("yt")) return "YouTube";
+    if (s.includes("tiktok")) return "TikTok";
+    if (s.includes("twitter") || s.includes("x.com")) return "Twitter/X";
+    if (s.includes("google")) return "Google";
+    if (s.includes("email") || s.includes("newsletter")) return "Email";
+    return utmSource.charAt(0).toUpperCase() + utmSource.slice(1);
+  }
+
+  if (utmMedium) {
+    const m = utmMedium.toLowerCase();
+    if (m === "social") return "Rede Social";
+    if (m === "email" || m === "newsletter") return "Email";
+    if (m === "cpc" || m === "paid") return "Anúncio Pago";
+    if (m === "organic") return "Busca Orgânica";
+    if (m === "whatsapp") return "WhatsApp";
+  }
+
   const ref = document.referrer;
-  if (ref.includes("instagram")) return "Instagram";
-  if (ref.includes("linkedin")) return "LinkedIn";
-  if (ref.includes("facebook")) return "Facebook";
-  if (ref.includes("google")) return "Google";
-  if (ref.includes("base44")) return "Base44";
-  return "Direto";
+  if (!ref) return "Direto";
+  if (ref.includes("instagram.com") || ref.includes("l.instagram.com")) return "Instagram";
+  if (ref.includes("linkedin.com")) return "LinkedIn";
+  if (ref.includes("facebook.com") || ref.includes("fb.com") || ref.includes("l.facebook.com")) return "Facebook";
+  if (ref.includes("wa.me") || ref.includes("whatsapp.com")) return "WhatsApp";
+  if (ref.includes("youtube.com") || ref.includes("youtu.be")) return "YouTube";
+  if (ref.includes("tiktok.com")) return "TikTok";
+  if (ref.includes("twitter.com") || ref.includes("t.co") || ref.includes("x.com")) return "Twitter/X";
+  if (ref.includes("google.com") || ref.includes("google.com.br")) return "Google";
+  if (ref.includes("bing.com")) return "Bing";
+  if (ref.includes("base44.com")) return "Base44";
+
+  return "Referência Externa";
 }
 
 function getVisitorOrigin() {
