@@ -58,6 +58,21 @@ export function trackQuizStart(userName, source) {
   });
 }
 
+export function trackQuizProgress(userName, sectionName, questionsAnswered, totalQuestions, source) {
+  sendEvent({
+    event_type: "quiz",
+    event_name: "quiz_section_complete",
+    user_name: userName,
+    source: source || getSource(),
+    metadata: JSON.stringify({
+      section: sectionName,
+      questions_answered: questionsAnswered,
+      total_questions: totalQuestions,
+      completion_pct: Math.round((questionsAnswered / totalQuestions) * 100),
+    }),
+  });
+}
+
 export function trackError(errorMessage, context, source) {
   sendEvent({
     event_type: "error",
