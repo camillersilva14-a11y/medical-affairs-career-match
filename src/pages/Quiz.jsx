@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowLeft, ArrowRight, Loader2, User, Mail, Briefcase } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import SEO from '@/components/SEO';
-import { trackPageview, trackLead, trackQuizStart, trackQuizComplete } from '@/lib/tracker';
+import { trackPageview, trackLead, trackQuizStart, trackQuizComplete, trackDISCResult } from '@/lib/tracker';
 
 import ProgressBar from '@/components/quiz/ProgressBar';
 import QuestionCard from '@/components/quiz/QuestionCard';
@@ -130,6 +130,10 @@ export default function Quiz() {
       recommended_jobs: recommendedJobs,
       status: 'completed'
     });
+
+    // Track DISC result
+    const dominantDimension = Object.entries(discProfile).sort((a, b) => b[1] - a[1])[0][0];
+    trackDISCResult(userInfo.name, discProfile, dominantDimension);
 
     // Track completion
     trackQuizComplete(

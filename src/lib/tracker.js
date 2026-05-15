@@ -57,6 +57,19 @@ export function trackQuizStart(userName, source) {
   });
 }
 
+export function trackDISCResult(userName, discProfile, dominantDimension, source) {
+  sendEvent({
+    event_type: "assessment",
+    event_name: "disc_result",
+    user_name: userName,
+    source: source || getSource(),
+    metadata: JSON.stringify({
+      disc_profile: discProfile,
+      dominant_dimension: dominantDimension,
+    }),
+  });
+}
+
 export function trackQuizComplete(userName, topJob, matchPercentage, source) {
   sendEvent({
     event_type: "quiz",
