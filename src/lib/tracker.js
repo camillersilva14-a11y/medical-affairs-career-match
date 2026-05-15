@@ -105,6 +105,25 @@ export function trackQuizComplete(userName, topJob, matchPercentage, source) {
   });
 }
 
+export function trackJobMatch(userName, matchedJobs, dominantDimension, source) {
+  sendEvent({
+    event_type: "assessment",
+    event_name: "job_match_success",
+    user_name: userName,
+    source: source || getSource(),
+    metadata: JSON.stringify({
+      dominant_dimension: dominantDimension,
+      total_matches: matchedJobs.length,
+      top_match: matchedJobs[0]?.job_title || null,
+      top_match_pct: matchedJobs[0]?.match_percentage || null,
+      matches: matchedJobs.map(j => ({
+        job_title: j.job_title,
+        match_percentage: j.match_percentage,
+      })),
+    }),
+  });
+}
+
 export function trackLead(userName, userEmail, source) {
   sendEvent({
     event_type: "lead",
