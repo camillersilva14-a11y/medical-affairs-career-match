@@ -1,0 +1,114 @@
+{
+  "name": "Assessment",
+  "type": "object",
+  "properties": {
+    "user_name": {
+      "type": "string",
+      "description": "Nome do usu\u00e1rio"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "Email do usu\u00e1rio"
+    },
+    "current_area": {
+      "type": "string",
+      "description": "\u00c1rea atual de atua\u00e7\u00e3o"
+    },
+    "answers": {
+      "type": "array",
+      "description": "Respostas do quiz",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "number"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "score": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "disc_profile": {
+      "type": "object",
+      "description": "Perfil DISC calculado",
+      "properties": {
+        "D": {
+          "type": "number"
+        },
+        "I": {
+          "type": "number"
+        },
+        "S": {
+          "type": "number"
+        },
+        "C": {
+          "type": "number"
+        }
+      }
+    },
+    "technical_scores": {
+      "type": "object",
+      "description": "Pontua\u00e7\u00f5es t\u00e9cnicas"
+    },
+    "recommended_jobs": {
+      "type": "array",
+      "description": "Vagas recomendadas",
+      "items": {
+        "type": "object",
+        "properties": {
+          "job_title": {
+            "type": "string"
+          },
+          "match_percentage": {
+            "type": "number"
+          },
+          "salary_range": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "string",
+            "enum": [
+              "interested",
+              "not_interested",
+              "none"
+            ],
+            "default": "none",
+            "description": "Feedback do usu\u00e1rio sobre a vaga"
+          }
+        }
+      }
+    },
+    "tool_feedback": {
+      "type": "object",
+      "description": "Avalia\u00e7\u00e3o do usu\u00e1rio sobre a ferramenta",
+      "properties": {
+        "rating": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "feedback": {
+          "type": "string"
+        },
+        "submitted_at": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "in_progress",
+        "completed"
+      ],
+      "default": "in_progress"
+    }
+  },
+  "required": [
+    "user_name"
+  ]
+}
